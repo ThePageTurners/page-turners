@@ -8,45 +8,82 @@ class App extends Component {
 		super();
 		this.state = {
 			books: [],
+			userInput: '',
 		};
 	}
 
-	componentDidMount() {
-		axios({
-			url: `https://www.googleapis.com/books/v1/volumes?`,
-			method: 'GET',
-			responseType: 'JSON',
-			params: {
-				key: 'AIzaSyD7Ytli5GUZu5S7FoaFn-sSMzsdWuwv_8E',
-				q: `neil gaiman`
-			}
-		}).then((response) => {
-			let books = response.data.items;
-			console.log(response.data.items)
-			
-			this.setState({
-				books,
-			})			
+	// componentDidMount() {
+
+		findBooks = (searchItem) => {
+			axios({
+				url: `https://www.googleapis.com/books/v1/volumes?`,
+				method: 'GET',
+				responseType: 'JSON',
+				params: {
+					key: 'AIzaSyD7Ytli5GUZu5S7FoaFn-sSMzsdWuwv_8E',
+					q: searchItem,
+				}
+			}).then((response) => {
+				let books = response.data.items;
+				console.log(response.data.items)
+				this.setState({
+					books,
+				})			
+			});
+		}
+	// }
+
+	handleChange = (event) => {
+		this.setState({
+		  userInput: event.target.value
 		});
 	}
-	// Yay I think I figured it out :D **** -Vigyan
+
+
+	handleClick = () => {
+		if (!this.state.userInput) return;
+		let searchTerm = this.state.userInput;
+		this.findBooks(searchTerm);
+		this.state.userInput = '';
+    };
+
+	handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+			if (!this.state.userInput) return;
+			let searchTerm = this.state.userInput;
+			this.findBooks(searchTerm);
+			this.state.userInput = '';
+        }
+    };
 
 	render() {
 		return (
 			<div className="App">
+				<input
+					type="text"
+					value={this.state.userInput}
+					onChange={this.handleChange}
+					onKeyPress={this.handleKeyPress}
+					name="userInput"
+					isFocused
+				/>
+				<button onClick={this.handleClick}>Search Book</button>
+           
 				<h1>Books!</h1>
 				<ul>
 					{this.state.books.map((book,index) => {
-						let authorName = book.volumeInfo.authors;
-						let authorNameAsString = authorName.join(', ');
+						// let authorName = book.volumeInfo.authors;
+						// let authorNameAsString = authorName.join(', ');
 						return (
 							<div key={index}>
 								<li>
 									<p>{book.volumeInfo.title}</p>
-									<p>{authorNameAsString}</p>
+									{/* <p>{authorNameAsString}</p> */}
+									<p>{book.volumeInfo.authors}</p>
 									<p>{book.volumeInfo.description}</p>
 									<img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title}/>
-									</li>
+					
+								</li>
 								
 							</div>
 						);
