@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/page-turners/static/css/main.3d7f450b.chunk.css",
-    "main.js": "/page-turners/static/js/main.a8f34411.chunk.js",
-    "main.js.map": "/page-turners/static/js/main.a8f34411.chunk.js.map",
+    "main.js": "/page-turners/static/js/main.268f4580.chunk.js",
+    "main.js.map": "/page-turners/static/js/main.268f4580.chunk.js.map",
     "runtime-main.js": "/page-turners/static/js/runtime-main.2be28b97.js",
     "runtime-main.js.map": "/page-turners/static/js/runtime-main.2be28b97.js.map",
     "static/js/2.1f4380cd.chunk.js": "/page-turners/static/js/2.1f4380cd.chunk.js",
     "static/js/2.1f4380cd.chunk.js.map": "/page-turners/static/js/2.1f4380cd.chunk.js.map",
     "index.html": "/page-turners/index.html",
-    "precache-manifest.5c616173a678ab3773aa7d920b6ed1c3.js": "/page-turners/precache-manifest.5c616173a678ab3773aa7d920b6ed1c3.js",
+    "precache-manifest.52a7c224af82a4582b8ac26495009667.js": "/page-turners/precache-manifest.52a7c224af82a4582b8ac26495009667.js",
     "service-worker.js": "/page-turners/service-worker.js",
     "static/css/main.3d7f450b.chunk.css.map": "/page-turners/static/css/main.3d7f450b.chunk.css.map",
     "static/js/2.1f4380cd.chunk.js.LICENSE.txt": "/page-turners/static/js/2.1f4380cd.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2be28b97.js",
     "static/js/2.1f4380cd.chunk.js",
     "static/css/main.3d7f450b.chunk.css",
-    "static/js/main.a8f34411.chunk.js"
+    "static/js/main.268f4580.chunk.js"
   ]
 }
