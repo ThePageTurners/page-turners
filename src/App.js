@@ -3,6 +3,7 @@ import axios from "axios";
 import "./App.scss";
 import firebase from "./Firebase/index.js";
 import BookItem from "./components/BookItem.js";
+import Bookshelf from "./components/Bookshelf.js";
 
 class App extends Component {
   constructor() {
@@ -78,6 +79,7 @@ class App extends Component {
       genre: this.state.books[index].volumeInfo.categories,
       rating: this.state.books[index].volumeInfo.averageRating,
       imageLinks: this.state.books[index].volumeInfo.imageLinks,
+      isRead: false,
 	};
 	
 	for(let item in objectPush){
@@ -109,6 +111,7 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>Page Turners</h1>
+           <Bookshelf />
         </header>
         <input
           type="text"
