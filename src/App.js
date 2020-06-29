@@ -48,8 +48,13 @@ class App extends Component {
       let books = response.data.items;
       this.setState({
         books,
-      });
-    });
+      })
+    }).catch((error)=>{
+      alert(error)
+      this.setState({
+        hasError: false
+      })
+    })
   };
 
   handleChange = (event) => {
@@ -105,6 +110,9 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.hasError) {
+      return <h1>There were no matches, please try again</h1>;   
+    }
     return (
       <div className="App">
         <header>
@@ -119,8 +127,9 @@ class App extends Component {
           name="userInput"
         />
         <button onClick={this.handleClick}>Search Book</button>
-
         <h1>Books!</h1>
+        {!this.state.books?(<h1>There were no matches, please try again</h1>)
+          :
         <ul>
           {this.state.books.map((book, index) => {
             // let searchedBook = book.volumeInfo;
@@ -144,6 +153,7 @@ class App extends Component {
             );
           })}
         </ul>
+        }
       </div>
     );
   }
