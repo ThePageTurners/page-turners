@@ -32,7 +32,6 @@ class App extends Component {
       this.setState({
         bookShelf: readingList,
       });
-      console.log(this.state.bookShelf);
     });
   }
 
@@ -49,8 +48,7 @@ class App extends Component {
       let books = response.data.items;
       this.setState({
         books,
-	  });
-
+      });
     });
   };
 
@@ -71,7 +69,6 @@ class App extends Component {
 
   handleClickAdd = (index) => {
     const dbRef = firebase.database().ref("readingList");
-    console.log(index);
     const objectPush = {
       title: this.state.books[index].volumeInfo.title,
       author: this.state.books[index].volumeInfo.authors,
@@ -79,20 +76,21 @@ class App extends Component {
       genre: this.state.books[index].volumeInfo.categories,
       rating: this.state.books[index].volumeInfo.averageRating,
       imageLinks: this.state.books[index].volumeInfo.imageLinks,
-      isRead: false,
-	};
+      isRead: false;
+    };
+      
 	
-	for(let item in objectPush){
-		if(objectPush[item] === undefined){
-			 item = null;
-			 console.log(objectPush[item])
-		};
-	}
-
-    this.setState({
-      readingList: objectPush,
-    });
-    dbRef.push(objectPush);
+	for (let item in objectPush) {
+    if (objectPush[item] === undefined) {
+      delete objectPush[item];
+      console.log(objectPush[item])
+    }
+  }
+  
+  this.setState({
+	  readingList: objectPush,
+	});
+	dbRef.push(objectPush);
   };
 
   handleKeyPress = (e) => {
@@ -125,7 +123,6 @@ class App extends Component {
         <h1>Books!</h1>
         <ul>
           {this.state.books.map((book, index) => {
-			  
             // let searchedBook = book.volumeInfo;
             return (
               <li key={index}>
@@ -136,8 +133,8 @@ class App extends Component {
                   description={book.volumeInfo.description}
                   genre={book.volumeInfo.categories}
                   rating={book.volumeInfo.averageRating}
-                //   thumbnail={book.volumeInfo.imageLinks.thumbnail}
-                //   imageLinks={book.volumeInfo.imageLinks}
+                  //   thumbnail={book.volumeInfo.imageLinks.thumbnail}
+                  //   imageLinks={book.volumeInfo.imageLinks}
                   handleClickAdd={this.handleClickAdd}
                 />
                 <button onClick={() => this.handleClickAdd(index)}>
