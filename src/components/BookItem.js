@@ -15,10 +15,10 @@ const BookItem = (props) => {
 
             { !props.imageLinks ?
 			(<img src={bookPlaceHolder} alt={props.title} />)
-			: 
-			(<img src={props.thumbnail} alt={props.title} />)
-			}
-			<button onClick={()=>props.handleClickAdd(props.index)}>Add Book</button>
+            :
+            (<img src={props.thumbnail} alt={props.title} />)
+            }
+			{/* <button onClick={()=>props.handleClickAdd(props.index)}>Add Book</button> */}
         </div>
     )
 }
