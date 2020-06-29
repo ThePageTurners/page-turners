@@ -4,6 +4,8 @@ import "./App.scss";
 import firebase from "./Firebase/index.js";
 import BookItem from "./components/BookItem.js";
 import Bookshelf from "./components/Bookshelf.js";
+import bookPlaceHolder from "./assets/bookPlaceholder.png";
+
 
 class App extends Component {
   constructor() {
@@ -13,6 +15,7 @@ class App extends Component {
       userInput: "",
       bookShelf: [],
       readingList: [],
+      imageLinks: bookPlaceHolder,
     };
   }
 
@@ -74,13 +77,16 @@ class App extends Component {
 
   handleClickAdd = (index) => {
     const dbRef = firebase.database().ref("readingList");
+
+    const books = this.state.books;
+
     const objectPush = {
-      title: this.state.books[index].volumeInfo.title,
-      author: this.state.books[index].volumeInfo.authors,
-      description: this.state.books[index].volumeInfo.description,
-      genre: this.state.books[index].volumeInfo.categories,
-      rating: this.state.books[index].volumeInfo.averageRating,
-      imageLinks: this.state.books[index].volumeInfo.imageLinks,
+      title: books[index].volumeInfo.title,
+      author: books[index].volumeInfo.authors,
+      description: books[index].volumeInfo.description,
+      genre: books[index].volumeInfo.categories,
+      rating: books[index].volumeInfo.averageRating,
+      imageLinks: books[index].volumeInfo.imageLinks,
       isRead: false,
     };
       
@@ -88,7 +94,6 @@ class App extends Component {
 	for (let item in objectPush) {
     if (objectPush[item] === undefined) {
       delete objectPush[item];
-      console.log(objectPush[item])
     }
   }
   
@@ -133,6 +138,10 @@ class App extends Component {
         <ul>
           {this.state.books.map((book, index) => {
             // let searchedBook = book.volumeInfo;
+            if(book.volumeInfo.imageLinks === undefined){
+              book.volumeInfo.imageLinks = this.state.imageLinks;
+            }
+            
             return (
               <li key={index}>
                 <BookItem
@@ -142,8 +151,7 @@ class App extends Component {
                   description={book.volumeInfo.description}
                   genre={book.volumeInfo.categories}
                   rating={book.volumeInfo.averageRating}
-                  //   thumbnail={book.volumeInfo.imageLinks.thumbnail}
-                  //   imageLinks={book.volumeInfo.imageLinks}
+                  thumbnail={book.volumeInfo.imageLinks.thumbnail}
                   handleClickAdd={this.handleClickAdd}
                 />
                 <button onClick={() => this.handleClickAdd(index)}>
