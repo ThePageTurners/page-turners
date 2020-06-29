@@ -3,6 +3,7 @@ import axios from "axios";
 import "./App.scss";
 import firebase from "./Firebase/index.js";
 import BookItem from "./components/BookItem.js";
+import Bookshelf from "./components/Bookshelf.js";
 
 class App extends Component {
   constructor() {
@@ -109,6 +110,7 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>Page Turners</h1>
+           <Bookshelf />
         </header>
         <input
           type="text"
