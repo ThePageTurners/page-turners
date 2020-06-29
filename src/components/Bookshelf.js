@@ -5,18 +5,7 @@ class Bookshelf extends Component {
     constructor() {
       super();
       this.state = {
-        readingList: [
-            {
-                title: "Harry Potter",
-                author: "J.K. Rowling",
-                isRead: false,
-            },
-            {
-                title: "1984",
-                author: "George Orwell",
-                isRead: false,
-            }
-        ],
+        readingList: [],
       };
     }
 
@@ -27,13 +16,39 @@ class Bookshelf extends Component {
     //     dbRef.on("value", (snapshot) => {
     //     //   const readingList = [];
     //       const data = snapshot.val();
+    //       console.log("Data", data);
+    //       const retrievedArray = [];
+    //       for (let item in data) {
+    //         retrievedArray.push(item.description)
+    //       };
+    //     //   retrievedArray.push(data);
+    //       console.log(retrievedArray);
     //       this.setState({
-    //         readingList: data,
+    //         readingList: retrievedArray,
     //       });
     //       console.log(this.state.readingList);
     //     });
     //   }
     
+
+      componentDidMount() {
+        // For retrieval of bookshelf list***
+        const dbRef = firebase.database().ref("readingList");
+        dbRef.on("value", (snapshot) => {
+          const readingList = [];
+          const data = snapshot.val();
+    
+          for (let key in data) {
+            readingList.push({
+              id: key,
+              bookList: data[key],
+            });
+          }
+          this.setState({
+            readingList: readingList,
+          });
+        });
+      }
 
     
     toggleRead = (index) => {
@@ -50,15 +65,17 @@ class Bookshelf extends Component {
                     {this.state.readingList.map((book, index) => {
                         return(
                     <li key={index}>
-                        <p>{book.title}</p>
-                        <p>{book.author}</p>
+                        <p>Title: {book.bookList.title}</p>
+                        <p>Author: {book.bookList.author}</p>
+                        <p>Description: {book.bookList.description}</p>
+                        <p>Genre: {book.bookList.genre}</p>
+                        <p>Rating: {book.bookList.rating}</p>
+                        <img src={book.bookList.imageLinks.thumbnail} alt={book.bookList.title}/>
                         <button onClick={() => this.toggleRead(index)}>Mark as Read</button>
                     </li>
                     );
                  })}
-                </ul>
-
-                
+                </ul>   
             </div>
         )
     }

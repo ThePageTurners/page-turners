@@ -79,6 +79,7 @@ class App extends Component {
       genre: this.state.books[index].volumeInfo.categories,
       rating: this.state.books[index].volumeInfo.averageRating,
       imageLinks: this.state.books[index].volumeInfo.imageLinks,
+      isRead: false,
 	};
 	
 	for(let item in objectPush){
