@@ -1,7 +1,7 @@
-import React from "react"
-import bookPlaceHolder from "../assets/bookPlaceholder.png"
+import React from "react";
 
 const BookItem = (props) => {
+
     return (
         <div>
             <h2>{props.title}</h2>
@@ -12,13 +12,8 @@ const BookItem = (props) => {
             <p className="bookDescription">{props.description}</p>
             <p>Genre: {props.genre}</p>
 			<p>Rating: {props.rating}</p>
-
-            { !props.imageLinks ?
-			(<img src={bookPlaceHolder} alt={props.title} />)
-            :
-            (<img src={props.thumbnail} alt={props.title} />)
-            }
-			{/* <button onClick={()=>props.handleClickAdd(props.index)}>Add Book</button> */}
+            <img src={props.thumbnail} alt={props.title} />
+            <button onClick={()=>props.handleClickAdd(props.index)}>Add Book</button>
         </div>
     )
 }
