@@ -111,26 +111,26 @@ class Search extends Component {
 				) : (
 					<ul>
 						{this.state.books.map((book, index) => {
-							const  { title, authors, description, categories, averageRating } = book.volumeInfo;
 							// let searchedBook = book.volumeInfo;
-							if (book.imageLinks === undefined) {
-								book.imageLinks = this.state.imageLinks;
+							if(book.volumeInfo.imageLinks === undefined){
+							book.volumeInfo.imageLinks = this.state.imageLinks;
 							}
-
 							return (
-								<li key={index}>
-									<BookItem
-										key={index}
-										title={title}
-										authors={authors}
-										description={description}
-										genre={categories}
-										rating={averageRating}
-										thumbnail={book.volumeInfo.imageLinks.thumbnail}
-										handleClickAdd={this.handleClickAdd}
-									/>
-									<button onClick={() => this.handleClickAdd(index)}>Add Book</button>
-								</li>
+							<li key={index}>
+								<BookItem
+								key={index}
+								title={book.volumeInfo.title}
+								authors={book.volumeInfo.authors}
+								description={book.volumeInfo.description}
+								genre={book.volumeInfo.categories}
+								rating={book.volumeInfo.averageRating}
+								thumbnail={book.volumeInfo.imageLinks.thumbnail}
+								handleClickAdd={this.handleClickAdd}
+								/>
+								<button onClick={() => this.handleClickAdd(index)}>
+								Add Book
+								</button>
+							</li>
 							);
 						})}
 					</ul>

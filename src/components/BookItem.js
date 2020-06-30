@@ -1,5 +1,5 @@
 import React from "react";
-import ReadMoreReact from 'read-more-react';
+// import ReadMoreReact from 'read-more-react';
 
 const BookItem = (props) => {
 
@@ -13,14 +13,14 @@ const BookItem = (props) => {
             <p className="author">{props.authors.join(", ")}</p>
             ) :
             (<p className="author">{props.authors}</p>)}
-            <p className="bookDescription">
+            {/* <p className="bookDescription">
                 <ReadMoreReact text={newDescription}
-                                min={100}
-                                ideal={150}
-                                max={1000}
-                                readMoreText={<p>Read More</p>}
-                                />
-                                </p>
+                            min={100}
+                            ideal={150}
+                            max={1000}
+                            readMoreText={<p>Read More</p>}
+                            />
+                            </p> */}
              { props.description ? (<p className="bookDescription">{props.description}</p>) : null }
             { props.genre ? (<p>Genre: {props.genre}</p>) : null }
 			      { props.rating ? (<p>Rating: {props.rating}</p>) : null }
