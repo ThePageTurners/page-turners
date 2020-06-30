@@ -243,6 +243,8 @@ a {
 }
 
 body {
-	background-color: #aca9bb;
-	font-family: 'Maitree', serif;
+	background: url(../assets/bookBackgroundWhite.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: $bodyFont;
 }

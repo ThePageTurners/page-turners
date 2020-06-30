@@ -1,8 +1,39 @@
 header {
 	height: 10vh;
+	background-color: #aca9bb;
 	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-flow: row;
 
 	h1 {
 		font-size: clamp(4rem, 3vh, 6rem);
+		font-family: $headingFont;
+		width: 50%;
+		margin: 1%;
+	}
+
+	nav.headerNav{
+		width: 50%;
+	}
+
+	nav.headerNav ul{
+		display: flex;
+		justify-content: space-around;
+		flex-flow: row;
+	}
+
+	nav.headerNav ul li{
+		font-size: clamp(2.5rem, 3vh, 4rem);
+		padding: 2%;
+	}
+
+	nav.headerNav ul li a{
+		color: $accent;
+	}
+
+	nav.headerNav ul li a:hover{
+		color: black;
 	}
 }

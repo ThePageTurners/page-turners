@@ -1,0 +1,38 @@
+main{
+    width: 80%;
+    margin: 0 auto;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.pageReturn{
+    width: 60%;
+}
+
+.pageReturn, .pageReturnAside{
+    max-height: 80vh;
+    border-radius: 15px;
+    background: $pageBlock;
+    border: 1px solid $primary;
+    padding: 2%;
+    overflow: auto;
+}
+
+h2, h3{
+    font-size: clamp(2.5rem, 3vh, 4rem);
+    font-family: $headingFont;
+    margin: 1% 0;
+    padding: 0;
+}
+
+p{
+    font-size: clamp(1.5rem, 2vh, 2rem);
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+.pageReturnAside{
+    width: calc(40% - 2%);
+}

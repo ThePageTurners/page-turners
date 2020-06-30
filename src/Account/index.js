@@ -1,25 +1,43 @@
 import React, { Component, Fragment } from "react";
-
-// * * * * ROUTER ELEMENTS
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Welcome from './components/landing';
-import Account from './Account/index';
-// * * * * ROUTER ELEMENTS END
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import axios from "axios";
-import firebase from "./Firebase/index.js";
-import BookItem from "./components/BookItem.js";
-
-// import Bookshelf from "./components/Bookshelf.js";
-import bookPlaceHolder from "./assets/bookPlaceholder.png";
-import githubLogo from './assets/github.svg';
-import "./App.scss";
-
-import Bookshelf from "./components/Bookshelf.js";
-import bookPlaceHolder from "./assets/bookPlaceholder.png";
+import firebase from "../Firebase/index.js";
+import BookItem from "../components/BookItem.js";
+// import Bookshelf from "../components/Bookshelf.js";
+import bookPlaceHolder from "../assets/bookPlaceholder.png";
+import githubLogo from '../assets/github.svg';
+import "../App.scss";
 
 
-class App extends Component {
+
+// * * * * NAME OF COMPONENT SHOULD BE ACCOUNT ON THIS PAGE
+// const Account = () => {
+//   return (
+//         <Fragment>
+//         <h2>I AM THE ACCOUNT COMPONENT PAGE</h2>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         <p>Hello</p>
+//         </Fragment>
+//   );
+// };
+
+class Account extends Component {
   constructor() {
     super();
     this.state = {
@@ -72,11 +90,20 @@ class App extends Component {
     })
   };
 
-const Home = () => {
-  return (
-        <h2>I'M THE HOME PAGE</h2>
-  );
-};
+  handleChange = (event) => {
+    this.setState({
+      userInput: event.target.value,
+    });
+  };
+
+  handleClick = () => {
+    if (!this.state.userInput) return;
+    let searchTerm = this.state.userInput;
+    this.findBooks(searchTerm);
+    this.setState({
+      userInput: "",
+    });
+  };
 
   handleClickAdd = (index) => {
     const dbRef = firebase.database().ref("readingList");
@@ -106,87 +133,26 @@ const Home = () => {
 	dbRef.push(objectPush);
   };
 
+  handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      if (!this.state.userInput) return;
+      let searchTerm = this.state.userInput;
+      this.findBooks(searchTerm);
+      this.setState({
+        userInput: "",
+      });
+    }
+  };
+
   render() {
-
-  
-    return (
-      <Router>
-        <div className="App">
-
-          <header>
-            <h1>Page Turners</h1>
-
-            <nav className="headerNav">
-              <ul> 
-                <li>
-                  <Link to="/">Landing</Link>
-                </li> 
-                <li>
-                  <Link to="/home">Home</Link> 
-                </li>
-                <li>
-                  <Link to="/account">My Reading Lists</Link>
-                </li> 
-              </ul>
-          </nav> 
-
-          </header>
-          
-          <main>
-            <div className="pageReturn">
-
-              <Route exact path="/" component={Welcome} />
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/account" component={Account} />
-
-            </div>
-
-            <div className="pageReturnAside">
-
-              <h3>I AM A TITLE</h3>
-              <p>Hello</p>
-
-            </div>
-
-          </main>
-
-          <footer>
-            <div className="groupMembers">
-              <h3>Group Project By:</h3>
-              <ul>
-                <li>
-                  <img src={githubLogo} alt="Github Logo"/>
-                  <a href="https://github.com/daibhidhdwaum">@daibhidhdwaum</a>
-                </li>
-                <li>
-                  <img src={githubLogo} alt="Github Logo"/>
-                  <a href="https://github.com/vigyan-k">@vigyan-k</a> 
-                </li>
-                <li>
-                  <img src={githubLogo} alt="Github Logo"/>
-                  <a href="https://github.com/OksanaSam">@OksanaSama</a>
-                </li>
-                <li>
-                  <img src={githubLogo} alt="Github Logo"/>
-                  <a href="https://github.com/amay-zingg">@amay-zingg</a>
-                </li>
-              </ul>
-            </div>
-            </footer>
-          
-        </div>
-        </Router>
-          
-
     if (this.state.hasError) {
       return <h1>There were no matches, please try again</h1>;   
     }
     return (
-      <div className="App">
-        <header>
-          <h1>Page Turners</h1>
-           <Bookshelf />
-        </header>
+      <Fragment>
+
+        {/* <Bookshelf /> */}
+
         <input
           type="text"
           value={this.state.userInput}
@@ -225,10 +191,9 @@ const Home = () => {
           })}
         </ul>
         }
-      </div>
-
+      </Fragment>
+        
     );
-  };
+  }
 }
-
-export default App;
+export default Account;
