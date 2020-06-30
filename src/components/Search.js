@@ -3,6 +3,7 @@ import axios from 'axios';
 import firebase from '../Firebase/index.js';
 import BookItem from './BookItem.js';
 import bookPlaceHolder from '../assets/bookPlaceholder.png';
+import ReadMoreReact from 'read-more-react';
 import '../App.scss';
 
 class Search extends Component {
@@ -13,7 +14,7 @@ class Search extends Component {
 			userInput: '',
 			bookShelf: [],
 			readingList: [],
-			imageLinks: bookPlaceHolder
+      imageLinks: bookPlaceHolder
 		};
 	}
 
@@ -111,7 +112,8 @@ class Search extends Component {
 				userInput: ''
 			});
 		}
-	};
+  };
+  
 
 	render() {
 		if (this.state.hasError) {
