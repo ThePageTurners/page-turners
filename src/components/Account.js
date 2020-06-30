@@ -66,7 +66,9 @@ class Account extends Component {
     });
   };
 
-  handleClick = () => {
+  handleClick = (e) => {
+    e.preventDefault();
+
     if (!this.state.userInput) return;
     let searchTerm = this.state.userInput;
     this.findBooks(searchTerm);
@@ -115,27 +117,26 @@ class Account extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>There were no matches, please try again</h1>;
+      return <p>There were no matches, please try again</p>;
     }
     return (
       <Fragment>
         {/* <Bookshelf /> */}
-
-        <input
-          type="text"
-          value={this.state.userInput}
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-          name="userInput"
-        />
-        <button onClick={this.handleClick}>Search Book</button>
-        <h1>Books!</h1>
+        <form>
+          <input
+            type="text"
+            value={this.state.userInput}
+            onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
+            name="userInput"
+          />
+          <button onClick={this.handleClick}>Search Book</button>
+        </form>
         {!this.state.books ? (
-          <h1>There were no matches, please try again</h1>
+          <p>There were no matches, please try again</p>
         ) : (
-          <ul>
+          <ul className="bookSearch">
             {this.state.books.map((book, index) => {
-              // let searchedBook = book.volumeInfo;
               if (book.volumeInfo.imageLinks === undefined) {
                 book.volumeInfo.imageLinks = this.state.imageLinks;
               }
@@ -152,7 +153,7 @@ class Account extends Component {
                     thumbnail={book.volumeInfo.imageLinks.thumbnail}
                     handleClickAdd={this.handleClickAdd}
                   />
-                  <button onClick={() => this.handleClickAdd(index)}>
+                  <button className="addBook" onClick={() => this.handleClickAdd(index)}>
                     Add Book
                   </button>
                 </li>

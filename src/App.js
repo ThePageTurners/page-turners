@@ -33,7 +33,7 @@ class App extends Component {
           </header>
 
           <main>
-            <div className="pageReturn">
+            <div>
               <Route exact path="/" component={Home} />
               {/* <Route exact path="/home" component={Home} /> */}
               <Route exact path="/account" component={Account} />
