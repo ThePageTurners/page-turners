@@ -14,26 +14,26 @@ header {
 		margin: 1%;
 	}
 
-	nav.headerNav{
+	nav.headerNav {
 		width: 50%;
 	}
 
-	nav.headerNav ul{
+	nav.headerNav ul {
 		display: flex;
 		justify-content: space-around;
 		flex-flow: row;
 	}
 
-	nav.headerNav ul li{
-		font-size: clamp(2.5rem, 3vh, 4rem);
+	nav.headerNav ul li {
+		font-size: clamp(2.5rem, 2vh, 3rem);
 		padding: 2%;
 	}
 
-	nav.headerNav ul li a{
+	nav.headerNav ul li a {
 		color: $accent;
 	}
 
-	nav.headerNav ul li a:hover{
+	nav.headerNav ul li a:hover {
 		color: black;
 	}
 }
