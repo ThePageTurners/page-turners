@@ -1,0 +1,49 @@
+footer {
+    display: block;
+    width: 98%;
+    margin: 2%;
+}
+
+.groupMembers{
+    border-radius: 15px;
+    background: $pageBlock;
+    border: 1px solid $primary;
+    width: 50%;
+    padding: 1%;
+    margin: 0 auto;
+}
+
+.groupMembers h3{
+    text-align: center;
+    font-size: clamp(2rem, 3vh, 3rem);
+    margin: 1%;
+}
+
+.groupMembers ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.groupMembers ul li{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.groupMembers ul li img{
+    display: inline-block;
+}
+
+.groupMembers ul li a{
+    font-size: clamp(1.5rem, 2vh, 2rem);
+    width: 90%;
+}
+
+.groupMembers ul li a:hover{
+    color: white;
+    background: $primary;
+}
