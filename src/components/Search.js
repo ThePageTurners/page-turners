@@ -12,29 +12,8 @@ class Search extends Component {
 		this.state = {
 			books: [],
 			userInput: '',
-			bookShelf: [],
-			readingList: [],
-      imageLinks: bookPlaceHolder
+			imageLinks: bookPlaceHolder
 		};
-	}
-
-	componentDidMount() {
-		// For retrieval of bookshelf list***
-		const dbRef = firebase.database().ref('readingList');
-		dbRef.on('value', (snapshot) => {
-			const readingList = [];
-			const data = snapshot.val();
-
-			for (let key in data) {
-				readingList.push({
-					id: key,
-					bookList: data[key]
-				});
-			}
-			this.setState({
-				bookShelf: readingList
-			});
-		});
 	}
 
 	findBooks = (searchItem) => {
@@ -78,17 +57,16 @@ class Search extends Component {
 
 	handleClickAdd = (index) => {
 		const dbRef = firebase.database().ref('readingList');
-
-		const books = this.state.books;
-
+		// const books = this.state.books;
+		const {title, authors, description, categories, averageRating, imageLinks} = this.state.books[index].volumeInfo;
 		const objectPush = {
-			title: books[index].volumeInfo.title,
-			author: books[index].volumeInfo.authors,
-			description: books[index].volumeInfo.description,
-			genre: books[index].volumeInfo.categories,
-			rating: books[index].volumeInfo.averageRating,
-			imageLinks: books[index].volumeInfo.imageLinks,
-			isRead: false
+		  title: title,
+		  author: authors,
+		  description,
+		  genre: categories,
+		  rating: averageRating,
+		  imageLinks,
+		  isRead: false,
 		};
 
 		for (let item in objectPush) {
@@ -97,9 +75,6 @@ class Search extends Component {
 			}
 		}
 
-		this.setState({
-			readingList: objectPush
-		});
 		dbRef.push(objectPush);
 	};
 
@@ -137,20 +112,21 @@ class Search extends Component {
 				) : (
 					<ul>
 						{this.state.books.map((book, index) => {
+							const  { title, authors, description, categories, averageRating } = book.volumeInfo;
 							// let searchedBook = book.volumeInfo;
-							if (book.volumeInfo.imageLinks === undefined) {
-								book.volumeInfo.imageLinks = this.state.imageLinks;
+							if (book.imageLinks === undefined) {
+								book.imageLinks = this.state.imageLinks;
 							}
 
 							return (
 								<li key={index}>
 									<BookItem
 										key={index}
-										title={book.volumeInfo.title}
-										authors={book.volumeInfo.authors}
-										description={book.volumeInfo.description}
-										genre={book.volumeInfo.categories}
-										rating={book.volumeInfo.averageRating}
+										title={title}
+										authors={authors}
+										description={description}
+										genre={categories}
+										rating={averageRating}
 										thumbnail={book.volumeInfo.imageLinks.thumbnail}
 										handleClickAdd={this.handleClickAdd}
 									/>

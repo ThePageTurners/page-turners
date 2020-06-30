@@ -13,7 +13,6 @@ const BookItem = (props) => {
             <p className="author">{props.authors.join(", ")}</p>
             ) :
             (<p className="author">{props.authors}</p>)}
-            
             <p className="bookDescription">
                 <ReadMoreReact text={newDescription}
                                 min={100}
@@ -22,9 +21,9 @@ const BookItem = (props) => {
                                 readMoreText={<p>Read More</p>}
                                 />
                                 </p>
-
-            <p>Genre: {props.genre}</p>
-			<p>Rating: {props.rating}</p>
+             { props.description ? (<p className="bookDescription">{props.description}</p>) : null }
+            { props.genre ? (<p>Genre: {props.genre}</p>) : null }
+			      { props.rating ? (<p>Rating: {props.rating}</p>) : null }
             <img src={props.thumbnail} alt={props.title} />
         </div>
     )
