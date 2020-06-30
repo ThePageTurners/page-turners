@@ -8,10 +8,10 @@ main{
 }
 
 .pageReturn{
-    width: 60%;
+    width: 100%;
 }
 
-.pageReturn, .pageReturnAside{
+.pageReturn{
     max-height: 80vh;
     border-radius: 15px;
     background: $pageBlock;
@@ -33,6 +33,6 @@ p{
     line-height: 3rem;
 }
 
-.pageReturnAside{
-    width: calc(40% - 2%);
-}
+// .pageReturnAside{
+//     width: calc(40% - 2%);
+// }
