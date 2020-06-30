@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 import firebase from "../Firebase/index.js";
-import BookItem from "../components/BookItem.js";
+import BookItem from "./BookItem.js";
 import bookPlaceHolder from "../assets/bookPlaceholder.png";
 import "../App.scss";
-
-
 
 class Account extends Component {
   constructor() {
@@ -47,17 +45,19 @@ class Account extends Component {
         key: "AIzaSyD7Ytli5GUZu5S7FoaFn-sSMzsdWuwv_8E",
         q: searchItem,
       },
-    }).then((response) => {
-      let books = response.data.items;
-      this.setState({
-        books,
-      })
-    }).catch((error)=>{
-      alert(error)
-      this.setState({
-        hasError: false
-      })
     })
+      .then((response) => {
+        let books = response.data.items;
+        this.setState({
+          books,
+        });
+      })
+      .catch((error) => {
+        alert(error);
+        this.setState({
+          hasError: false,
+        });
+      });
   };
 
   handleChange = (event) => {
@@ -89,18 +89,17 @@ class Account extends Component {
       imageLinks: books[index].volumeInfo.imageLinks,
       isRead: false,
     };
-      
-	
-	for (let item in objectPush) {
-    if (objectPush[item] === undefined) {
-      delete objectPush[item];
+
+    for (let item in objectPush) {
+      if (objectPush[item] === undefined) {
+        delete objectPush[item];
+      }
     }
-  }
-  
-  this.setState({
-	  readingList: objectPush,
-	});
-	dbRef.push(objectPush);
+
+    this.setState({
+      readingList: objectPush,
+    });
+    dbRef.push(objectPush);
   };
 
   handleKeyPress = (e) => {
@@ -116,11 +115,10 @@ class Account extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>There were no matches, please try again</h1>;   
+      return <h1>There were no matches, please try again</h1>;
     }
     return (
       <Fragment>
-
         {/* <Bookshelf /> */}
 
         <input
@@ -132,37 +130,37 @@ class Account extends Component {
         />
         <button onClick={this.handleClick}>Search Book</button>
         <h1>Books!</h1>
-        {!this.state.books?(<h1>There were no matches, please try again</h1>)
-          :
-        <ul>
-          {this.state.books.map((book, index) => {
-            // let searchedBook = book.volumeInfo;
-            if(book.volumeInfo.imageLinks === undefined){
-              book.volumeInfo.imageLinks = this.state.imageLinks;
-            }
-            
-            return (
-              <li key={index}>
-                <BookItem
-                  key={index}
-                  title={book.volumeInfo.title}
-                  authors={book.volumeInfo.authors}
-                  description={book.volumeInfo.description}
-                  genre={book.volumeInfo.categories}
-                  rating={book.volumeInfo.averageRating}
-                  thumbnail={book.volumeInfo.imageLinks.thumbnail}
-                  handleClickAdd={this.handleClickAdd}
-                />
-                <button onClick={() => this.handleClickAdd(index)}>
-                  Add Book
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        }
+        {!this.state.books ? (
+          <h1>There were no matches, please try again</h1>
+        ) : (
+          <ul>
+            {this.state.books.map((book, index) => {
+              // let searchedBook = book.volumeInfo;
+              if (book.volumeInfo.imageLinks === undefined) {
+                book.volumeInfo.imageLinks = this.state.imageLinks;
+              }
+
+              return (
+                <li key={index}>
+                  <BookItem
+                    key={index}
+                    title={book.volumeInfo.title}
+                    authors={book.volumeInfo.authors}
+                    description={book.volumeInfo.description}
+                    genre={book.volumeInfo.categories}
+                    rating={book.volumeInfo.averageRating}
+                    thumbnail={book.volumeInfo.imageLinks.thumbnail}
+                    handleClickAdd={this.handleClickAdd}
+                  />
+                  <button onClick={() => this.handleClickAdd(index)}>
+                    Add Book
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </Fragment>
-        
     );
   }
 }
