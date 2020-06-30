@@ -13,7 +13,6 @@ const BookItem = (props) => {
             <p>Genre: {props.genre}</p>
 			<p>Rating: {props.rating}</p>
             <img src={props.thumbnail} alt={props.title} />
-            <button onClick={()=>props.handleClickAdd(props.index)}>Add Book</button>
         </div>
     )
 }

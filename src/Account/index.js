@@ -1,41 +1,11 @@
 import React, { Component, Fragment } from "react";
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 import axios from "axios";
 import firebase from "../Firebase/index.js";
 import BookItem from "../components/BookItem.js";
-// import Bookshelf from "../components/Bookshelf.js";
 import bookPlaceHolder from "../assets/bookPlaceholder.png";
-import githubLogo from '../assets/github.svg';
 import "../App.scss";
 
 
-
-// * * * * NAME OF COMPONENT SHOULD BE ACCOUNT ON THIS PAGE
-// const Account = () => {
-//   return (
-//         <Fragment>
-//         <h2>I AM THE ACCOUNT COMPONENT PAGE</h2>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         <p>Hello</p>
-//         </Fragment>
-//   );
-// };
 
 class Account extends Component {
   constructor() {
