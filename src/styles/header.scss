@@ -1,32 +1,27 @@
 header {
-	height: 10vh;
-	background-color: #aca9bb;
-	text-align: center;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-flow: row;
-
-	h1 {
-		font-size: clamp(4rem, 3vh, 6rem);
-		font-family: $headingFont;
-		width: 50%;
-		margin: 1%;
-	}
-
-	nav.headerNav {
-		width: 50%;
-	}
+	height: 100vh;
+}
 
 	nav.headerNav ul {
 		display: flex;
-		justify-content: space-around;
-		flex-flow: row;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	h1 {
+		font-family: $headingFont;
+		background-color: $primary;
+		color: #fff;
+		font-size: clamp(2rem, 3vh, 4rem);
+		text-transform: uppercase;
+		margin: 0;
+		padding: 3rem;
 	}
 
-	nav.headerNav ul li {
-		font-size: clamp(2.5rem, 2vh, 3rem);
-		padding: 2%;
+
+	nav.headerNav ul li{
+		font-size: clamp(2rem, 1vh, 3.5rem);
+		padding: 2rem;
 	}
 
 	nav.headerNav ul li a {
@@ -36,4 +31,6 @@ header {
 	nav.headerNav ul li a:hover {
 		color: black;
 	}
-}
+
+
+

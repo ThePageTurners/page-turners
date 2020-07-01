@@ -33,12 +33,13 @@ class App extends Component {
 						</nav>
 					</header>
 
-					<main>
-						<div className="pageReturn">
-							<Route exact path="/" component={Home} />
-							<Route exact path="/search" component={Search} />
-							<Route exact path="/bookshelf" component={Bookshelf} />
-						</div>
+
+          <main>
+            <div>
+              	<Route exact path="/" component={Home} />
+              	<Route exact path="/search" component={Search} />
+				<Route exact path="/bookshelf" component={Bookshelf} />
+            </div>
 
 						{/* <div className="pageReturnAside">
               <h3>I AM A TITLE</h3>

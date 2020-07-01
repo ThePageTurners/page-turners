@@ -1,48 +1,117 @@
+form,
+input {
+  border: 1px solid $primary;
+}
+
+form,
+.bookSearch .book button {
+  display: flex;
+}
+
+input,
+button,
+.book {
+  border-radius: 0.3rem;
+}
+
+input,
+.bookSearch .book h2,
+.bookInfo {
+  width: 100%;
+}
+
+input,
+button,
+.bookSearch .book h2 {
+  font-size: 2rem;
+}
+
 main {
-	width: 80%;
-	margin: 0 auto;
-	padding: 5%;
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
+  margin: 5%;
 }
 
-.pageReturn {
-	width: 100%;
-}
-
-.pageReturn {
-	max-height: 80vh;
-	border-radius: 15px;
-	background: $pageBlock;
-	border: 1px solid $primary;
-	padding: 2%;
-	overflow: auto;
+form {
+  border-radius: 1.5rem;
+  background: $pageBlock;
+  padding: 2rem;
+  flex-direction: column;
 }
 
 h2,
 h3 {
-	font-size: clamp(2.5rem, 3vh, 4rem);
-	font-family: $headingFont;
-	margin: 1% 0;
-	padding: 0;
+  font-size: clamp(2.5rem, 3vh, 4rem);
+  font-family: $headingFont;
+  margin: 1% 0;
+  padding: 0;
 }
 
 p {
-	font-size: clamp(1.5rem, 2vh, 2rem);
-	font-weight: bold;
-	line-height: 3rem;
+  font-size: clamp(1.5rem, 2vh, 2rem);
+  line-height: 2.7rem;
 }
 
-p.bookDescription p{
-	color: $primary;
-	font-weight: bold;
-	background: white;
-	border-radius: 5px;
-	display: inline-block;
-	padding: 1%;
+input {
+  height: 4rem;
+  padding-left: 1rem;
 }
 
-// .pageReturnAside{
-//     width: calc(40% - 2%);
-// }
+button {
+  border-style: none;
+  background-color: $primary;
+  color: #fff;
+  padding: 1rem 3rem;
+  margin: 1rem 0;
+}
+
+.book {
+//   background-color: $secondary;
+  padding: 1rem;
+  margin-top: 4rem;
+}
+
+.book h2 {
+  margin: 2rem 0;
+}
+
+.bookSearch .book {
+  .imageContainer {
+    width: 100%;
+  }
+  img {
+    display: block;
+    width: 100%;
+    max-width: 15rem;
+  }
+  button {
+    align-items: center;
+  }
+}
+
+.bookInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "info info"
+    "blurb blurb";
+  p {
+    margin: 0;
+    padding: 0 1rem;
+    font-size: 1.8rem;
+  }
+  .bookDescription{
+      padding: 2rem 0;
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.blurb {
+  grid-area: blurb;
+}
+
+.info {
+  grid-area: info;
+}
+
