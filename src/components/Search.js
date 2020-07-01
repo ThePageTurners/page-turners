@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import firebase from '../Firebase/index.js';
 import BookItem from './BookItem.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import bookPlaceHolder from '../assets/bookPlaceholder.png';
 import '../App.scss';
 
@@ -14,6 +16,8 @@ class Search extends Component {
 			imageLinks: bookPlaceHolder
 		};
 	}
+
+	searchIcon = <FontAwesomeIcon icon={faSearch} size="1x"/>;
 
 	findBooks = (searchItem) => {
 		axios({
@@ -95,16 +99,16 @@ class Search extends Component {
 		}
 		return (
 			<Fragment>
-				{/* <Bookshelf /> */}
-
 				<input
 					type="text"
+					placeholder="Title / Author"
 					value={this.state.userInput}
 					onChange={this.handleChange}
 					onKeyPress={this.handleKeyPress}
 					name="userInput"
 				/>
 				<button onClick={this.handleClick}>Search Book</button>
+				<button onClick={this.handleClick}>{this.searchIcon}</button>
 				<h1>Books!</h1>
 				{!this.state.books ? (
 					<h1>There were no matches, please try again</h1>
