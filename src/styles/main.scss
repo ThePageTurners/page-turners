@@ -1,3 +1,37 @@
+
+// * * * * THE HOME PAGE
+.intro{
+  background: url(../assets/bookBackgroundWhite.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  border-radius: 15px;
+}
+
+.intro h2, .intro p{
+  width: 40%;
+  text-align: center;
+  margin-left: 5%;
+}
+
+.intro h2{
+  padding: 3%;
+  padding-bottom: 0;
+}
+
+.intro p{
+  padding: 3%;
+  background: $secondary;
+  border: 1px solid darken($color: $secondary, $amount: 8);
+  border-radius: 15px;
+  font-family: $bodyFont;
+}
+
+// * * * * THE SEARCH PAGE
+main{
+  height: 100%;
+}
+
 form,
 input {
   border: 1px solid $primary;
@@ -48,6 +82,7 @@ h3 {
 p {
   font-size: clamp(1.5rem, 2vh, 2rem);
   line-height: 2.7rem;
+  font-family: $bodyFont;
 }
 
 input {
@@ -57,10 +92,13 @@ input {
 
 button {
   border-style: none;
-  background-color: $primary;
+  // background-color: lighten($color: $accent, $amount: 3);
+  background: rgb(9,4,70);
+background: linear-gradient(0deg, rgba(9,4,70,1) 0%, rgba(99,113,146,1) 74%);
   color: #fff;
   padding: 1rem 3rem;
   margin: 1rem 0;
+  border-radius: 5px;
 }
 
 .book {
