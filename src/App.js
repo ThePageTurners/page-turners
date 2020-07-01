@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from './Firebase/index.js';
 
 // * * * * ROUTER ELEMENTS
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
