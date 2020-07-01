@@ -25,16 +25,16 @@ function Navigation() {
 	);
 }
 
-function NavItem() {
+// function NavItem() {
 
-    const [open, setOpen] = useState(false);
+//     const [open, setOpen] = useState(false);
 
-    return(
-        <li className="navItem">
-            <a href="#" className="iconButton" onClick={() => setOpen(!open)}></a>
-        </li>
-    )
+//     return(
+//         <li className="navItem">
+//             <a href="#" className="iconButton" onClick={() => setOpen(!open)}></a>
+//         </li>
+//     )
 
-}
+// }
 
 export default Navigation;
