@@ -1,5 +1,6 @@
 import React from "react";
 // import ReadMoreReact from 'read-more-react';
+import ReactReadMoreReadLess from 'react-read-more-less';
 
 const BookItem = (props) => {
 
@@ -18,9 +19,26 @@ const BookItem = (props) => {
           )}
           <p>Genre: {props.genre}</p>
           <p>Rating: {props.rating}/5</p>
-
         </div>
-      <p className="bookDescription blurb">{props.description}</p>
+        { props.description ? 
+            (<div className="bookDescription blurb">
+              {/* <ReadMoreReact
+                    text={props.description}
+                    min={100}
+                    ideal={150}
+                    max={1000}
+                    readMoreText={<p>Read More</p>}
+                />  </div>) : null } */}
+            <ReactReadMoreReadLess
+                charLimit={200}
+                readMoreText={<p>Read more ▼</p>}
+                readLessText={<p>Read less ▲</p>}
+                readMoreClassName="read-more-less--more"
+                readLessClassName="read-more-less--less"
+            >
+                {props.description}
+            </ReactReadMoreReadLess> 
+             </div>) : null }
       </div>
     </div>
   );
