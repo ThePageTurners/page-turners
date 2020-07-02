@@ -1,38 +1,37 @@
 import React from "react";
 // import ReadMoreReact from 'read-more-react';
-import ReactReadMoreReadLess from 'react-read-more-less';
+import ReactReadMoreReadLess from "react-read-more-less";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark as solidBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark as outlineBookmark } from "@fortawesome/free-regular-svg-icons";
 
 const BookItem = (props) => {
 
+  let solidBookmarkIcon = <FontAwesomeIcon icon={solidBookmark} size="2x" className="bookmark"/>;
+  let outlinedBookmarkIcon = <FontAwesomeIcon icon={outlineBookmark} size="2x"/>;
+
   return (
     <div className="book">
-      <h2 className="header">{props.title}</h2>
-      <div className="bookInfo info">
-        <div className="imageContainer">
-          <img src={props.thumbnail} alt={props.title} />
+      <h3 className="title">{props.title}</h3>
+      <div className="imageContainer bookImage">
+        <img src={props.thumbnail} alt={props.title} />
         </div>
-        <div className="writtenInfo">
-          {props.authors && props.authors.length > 1 ? (
-            <p className="author">{props.authors.join(", ")}</p>
+        <div className="writtenInfo info">
+          { props.isAdded ? (
+            <span className="bookmark">{solidBookmarkIcon}</span>
           ) : (
-            <p className="author">{props.authors}</p>
-          )}
-          <p>Genre: {props.genre}</p>
-          <p>Rating: {props.rating}/5</p>
+            <span className="bookmark">{outlinedBookmarkIcon}</span>
+          )} 
+          <p className="author">{props.authors}</p>
+          <p>Genre: { props.genre ? `${props.genre}` : "not available" }</p>
+          <p>Rating: { props.rating ? `${props.rating}/5` : "not available" }</p>
         </div>
         { props.description ? 
             (<div className="bookDescription blurb">
-              {/* <ReadMoreReact
-                    text={props.description}
-                    min={100}
-                    ideal={150}
-                    max={1000}
-                    readMoreText={<p>Read More</p>}
-                />  </div>) : null } */}
             <ReactReadMoreReadLess
                 charLimit={200}
-                readMoreText={<p>Read more ▼</p>}
-                readLessText={<p>Read less ▲</p>}
+                readMoreText={<p className="moreOrLess">Read more ▼</p>}
+                readLessText={<p className="moreOrLess">Read less ▲</p>}
                 readMoreClassName="read-more-less--more"
                 readLessClassName="read-more-less--less"
             >
@@ -40,7 +39,6 @@ const BookItem = (props) => {
             </ReactReadMoreReadLess> 
              </div>) : null }
       </div>
-    </div>
   );
 };
 

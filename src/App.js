@@ -84,38 +84,20 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<header>
+
 						<Ripples className="h1" color="#f1f8f8" during={1200}>
 							<Link to="/" className="pageTitle">
 								<h1>Page Turners</h1>
 							</Link>
 						</Ripples>
-
-						{/* LOGIN FORM */}
-						{/* {this.state.isLoggedIn === false ? (
-							<div>
-								<form className="login">
-									<input
-										aria-label="username"
-										type="text"
-										placeholder="Username"
-										value={this.state.activeUser}
-										onChange={this.handleChangeUser}
-										required
-									/>
-									<button type="submit" onClick={this.handleLogin}>
-										Login
-									</button>
-								</form>
-							</div>
-						) : null} */}
-
+      
 						<Navigation />
 					</header>
 
 					<main>
 						<div>
-							{/* <Home /> */}
-							<Route exact path="/" component={Home} />
+							<Home />
+							<Route exact path="/page-turners" component={Home} />
 							<Route exact path="/search" component={Search} />
 							<Route exact path="/bookshelf" component={Bookshelf} />
 						</div>

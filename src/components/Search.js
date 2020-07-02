@@ -4,7 +4,9 @@ import firebase from '../Firebase/index.js';
 import BookItem from './BookItem.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import bookPlaceHolder from '../assets/bookPlaceholder.png';
+
+// import bookPlaceHolder from '../assets/bookPlaceholder.png';
+import Swal from 'sweetalert2';
 import '../App.scss';
 
 
@@ -14,7 +16,7 @@ class Search extends Component {
 		this.state = {
 			books: [],
 			userInput: '',
-			imageLinks: bookPlaceHolder
+			// imageLinks: bookPlaceHolder
 		};
 	}
 
@@ -61,11 +63,16 @@ class Search extends Component {
 
 	handleClickAdd = (index) => {
 		const dbRef = firebase.database().ref('readingList');
-		// const books = this.state.books;
 		const {title, authors, description, categories, averageRating, imageLinks} = this.state.books[index].volumeInfo;
+		let author;
+		if (authors && authors.length > 1){
+			author = authors.join(", ");
+		 } else {
+			 author = authors;
+		};
 		const objectPush = {
 		  title: title,
-		  author: authors,
+		  author: author,
 		  description,
 		  genre: categories,
 		  rating: averageRating,
@@ -79,8 +86,35 @@ class Search extends Component {
 			}
 		}
 
-		dbRef.push(objectPush);
+		dbRef.once("value", (snapshot) => {
+          	const data = snapshot.val();
+			if (!data){
+				dbRef.push(objectPush);
+			} else {
+				const retrievedArray = Object.values(data);
+				retrievedArray.map((item) => {
+					if (item.title === objectPush.title) {
+						Swal.fire({  title: 'Oops...', imageUrl: "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png", imageWidth: 400, imageHeight: 400, text: 'It looks like you have already added this book to your bookshelf!',  icon: 'error',  confirmButtonText: 'Cool'});
+						return;
+					} 
+				})
+				dbRef.push(objectPush);
+			}			
+        });
+
+		this.setState({
+			books: this.state.books.map((book, ind) => {
+				if (ind !== index) return book;
+				const addedBook = {...book};
+				addedBook.isAdded = true;
+				return addedBook;
+			}),
+		})
 	};
+
+
+
+
 
 	handleKeyPress = (e) => {
 		if (e.key === 'Enter') {
@@ -95,9 +129,6 @@ class Search extends Component {
   
 
 	render() {
-		if (this.state.hasError) {
-			return <h1>There were no matches, please try again</h1>;
-		}
 		return (
 			<Fragment>
 				<input
@@ -110,30 +141,26 @@ class Search extends Component {
 				/>
 				<button onClick={this.handleClick}>Search Book</button>
 				<button onClick={this.handleClick}>{this.searchIcon}</button>
-				{/* <h1>Books!</h1> */}
 				{!this.state.books ? (
-					<h1>There were no matches, please try again</h1>
+					<h2>There were no matches, please try again</h2>
 				) : (
 					<ul>
 						{this.state.books.map((book, index) => {
-							// let searchedBook = book.volumeInfo;
-							if(book.volumeInfo.imageLinks === undefined){
-							book.volumeInfo.imageLinks = this.state.imageLinks;
-							}
 							return (
 							<li key={index}>
 								<BookItem
-								key={index}
-								title={book.volumeInfo.title}
-								authors={book.volumeInfo.authors}
-								description={book.volumeInfo.description}
-								genre={book.volumeInfo.categories}
-								rating={book.volumeInfo.averageRating}
-								thumbnail={book.volumeInfo.imageLinks.thumbnail}
-								handleClickAdd={this.handleClickAdd}
+									key={index}
+									title={book.volumeInfo.title}
+									authors={ book.volumeInfo.authors && book.volumeInfo.authors.length > 1 ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors }
+									description={book.volumeInfo.description}
+									genre={book.volumeInfo.categories}
+									isAdded={book.isAdded}
+									rating={book.volumeInfo.averageRating}
+									thumbnail={ book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png" }
+									handleClickAdd={this.handleClickAdd}
 								/>
-								<button onClick={() => this.handleClickAdd(index)}>
-								Add Book
+								<button className={book.isAdded ? "toggledButton" : null} onClick={() => this.handleClickAdd(index)}>
+								{ !book.isAdded ? "Add Book": "Added" }
 								</button>
 							</li>
 							);
