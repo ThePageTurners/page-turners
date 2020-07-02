@@ -12,7 +12,7 @@ const BookItem = (props) => {
 
   return (
     <div className="book">
-      <h2 className="header">{props.title}</h2>
+      <h3 className="header">{props.title}</h3>
       <div className="bookInfo info">
         <div className="imageContainer">
           <img src={props.thumbnail} alt={props.title} />

@@ -1,6 +1,5 @@
-
 // * * * * THE HOME PAGE
-.intro{
+.intro {
   background: url(../assets/bookBackgroundWhite.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -8,18 +7,19 @@
   border-radius: 15px;
 }
 
-.intro h2, .intro p{
+.intro h2,
+.intro p {
   width: 40%;
   text-align: center;
   margin-left: 5%;
 }
 
-.intro h2{
+.intro h2 {
   padding: 3%;
   padding-bottom: 0;
 }
 
-.intro p{
+.intro p {
   padding: 3%;
   background: $secondary;
   border: 1px solid darken($color: $secondary, $amount: 8);
@@ -28,7 +28,7 @@
 }
 
 // * * * * THE SEARCH PAGE
-main{
+main {
   height: 100%;
 }
 
@@ -93,8 +93,12 @@ input {
 button {
   border-style: none;
   // background-color: lighten($color: $accent, $amount: 3);
-  background: rgb(9,4,70);
-background: linear-gradient(0deg, rgba(9,4,70,1) 0%, rgba(99,113,146,1) 74%);
+  background: rgb(9, 4, 70);
+  background: linear-gradient(
+    0deg,
+    rgba(9, 4, 70, 1) 0%,
+    rgba(99, 113, 146, 1) 74%
+  );
   color: #fff;
   padding: 1rem 3rem;
   margin: 1rem 0;
@@ -102,7 +106,7 @@ background: linear-gradient(0deg, rgba(9,4,70,1) 0%, rgba(99,113,146,1) 74%);
 }
 
 .book {
-//   background-color: $secondary;
+  //   background-color: $secondary;
   padding: 1rem;
   margin-top: 4rem;
 }
@@ -127,33 +131,48 @@ background: linear-gradient(0deg, rgba(9,4,70,1) 0%, rgba(99,113,146,1) 74%);
 
 .bookInfo {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "info info"
-    "blurb blurb";
+    "title title title"
+    "bookImage info info"
+    "bookImage info info"
+    "blurb blurb blurb"
+    "read del .";
+
+    margin-top: 10rem;
   p {
     margin: 0;
     padding: 0 1rem;
     font-size: 1.8rem;
   }
-  .bookDescription{
-      padding: 2rem 0;
+  .bookDescription {
+    padding: 2rem 0;
   }
 }
-
-.header {
-  grid-area: header;
+.title{
+  grid-area: title;
 }
-
+.bookImage{
+  grid-area: bookImage;
+}
 .blurb {
   grid-area: blurb;
 }
-
 .info {
   grid-area: info;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.readButton{
+  grid-area: read;
+}
+.delButton{
+  grid-area: del;
 }
 
 // NEEDS STYLING
 button.toggledButton {
   background: rgba(99,113,146,1);
 }
+
