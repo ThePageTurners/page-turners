@@ -3,7 +3,8 @@ import firebase from './Firebase/index.js';
 import Navigation from './components/Navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import faGithub from './assets/github.svg';
+import Favicon from 'react-favicon';
+import ReactDOM from 'react-dom';
 import './App.scss';
 
 // * * * * ROUTER ELEMENTS
@@ -12,6 +13,13 @@ import Home from './components/Home';
 import Search from './components/Search';
 import Bookshelf from './components/Bookshelf';
 // * * * * ROUTER ELEMENTS END
+
+ReactDOM.render(
+	<div>
+		<Favicon url="favicon.ico" />
+	</div>,
+	document.getElementById('root')
+);
 
 class App extends Component {
 	constructor() {
@@ -95,22 +103,6 @@ class App extends Component {
 							</div>
 						) : null} */}
 
-						{/* Navigation Before */}
-						{/* <h1>Page Turners</h1>
-
-						<nav className="headerNav">
-							<ul>
-								<li>
-									<Link to="/">Home</Link>
-								</li>
-								<li>
-									<Link to="/search">Search Books</Link>
-								</li>
-								<li>
-									<Link to="/bookshelf">My Bookshelf</Link>
-								</li>
-							</ul>
-						</nav> */}
 
 						<Link to="/" className="pageTitle"><h1>Page Turners</h1></Link>
 						<Navigation />
@@ -118,6 +110,7 @@ class App extends Component {
 
 					<main>
 						<div>
+							{/* <Home /> */}
 							<Route exact path="/" component={Home} />
 							<Route exact path="/search" component={Search} />
 							<Route exact path="/bookshelf" component={Bookshelf} />
