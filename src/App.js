@@ -124,7 +124,6 @@ class App extends Component {
 						</div>
 
 						{/* <div className="pageReturnAside">
-              <h3>I AM A TITLE</h3>
               <p>Hello</p>
             </div> */}
 					</main>

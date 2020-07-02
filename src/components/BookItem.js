@@ -22,13 +22,6 @@ const BookItem = (props) => {
         </div>
         { props.description ? 
             (<div className="bookDescription blurb">
-              {/* <ReadMoreReact
-                    text={props.description}
-                    min={100}
-                    ideal={150}
-                    max={1000}
-                    readMoreText={<p>Read More</p>}
-                />  </div>) : null } */}
             <ReactReadMoreReadLess
                 charLimit={200}
                 readMoreText={<p>Read more ▼</p>}
