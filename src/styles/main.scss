@@ -190,10 +190,14 @@ span.bookmark {
 }
 
 .bookImage img {
-  max-width: 13re;
+  max-width: 13rem;
 }
 
 // NEEDS STYLING
 button.toggledButton {
   background: rgba(99, 113, 146, 1);
+}
+
+.readMoreText{
+  color: #000;
 }
