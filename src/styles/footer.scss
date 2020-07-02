@@ -1,34 +1,29 @@
 footer {
     display: block;
+    height: 100%;
+    padding: 2%;
     color: #fff;
     background-color: $primary;
     border-top: solid 1px (darken($color: $primary, $amount: 1));
 }
 
-.groupMembers ul li{
-    display: flex;
-    align-items: center;
-    padding: .3rem 0;
-}
-
-.groupMembers{
-    background: $primary;
-}
-
 .groupMembers h3{
-    text-align: center;
     font-size: clamp(2rem, 3vh, 3rem);
-    padding: 2rem 0 .5rem;
+    text-align: center;
 }
 
 .groupMembers ul{
-    width: 55%;
-    margin:  0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
 }
 
-.groupMembers ul li img{
-    display: inline-block;
-    color: #fff;
+.groupMembers ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3rem 0;
+    width: 50%;
 }
 
 .groupMembers ul li a{
@@ -37,5 +32,4 @@ footer {
 
 .groupMembers ul li a:hover{
     color: white;
-    background: $primary;
 }

@@ -6,6 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Favicon from 'react-favicon';
 import ReactDOM from 'react-dom';
 import './App.scss';
+import Ripples from 'react-ripples';
 
 // * * * * ROUTER ELEMENTS
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -32,7 +33,7 @@ class App extends Component {
 		};
 	}
 
-	github = <FontAwesomeIcon icon={faGithub} size="1x"/>;
+	github = <FontAwesomeIcon icon={faGithub} size="1x" />;
 
 	componentDidMount() {
 		const dbRef = firebase.database().ref();
@@ -76,7 +77,6 @@ class App extends Component {
 		} else {
 			alert('Please enter your name!');
 		}
-		
 	};
 
 	render() {
@@ -84,7 +84,13 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<header>
-						<Link to="/" className="pageTitle"><h1>Page Turners</h1></Link>
+
+						<Ripples className="h1" color="#f1f8f8" during={1200}>
+							<Link to="/" className="pageTitle">
+								<h1>Page Turners</h1>
+							</Link>
+						</Ripples>
+      
 						<Navigation />
 					</header>
 
@@ -102,16 +108,24 @@ class App extends Component {
 							<h3>Group Project By:</h3>
 							<ul>
 								<li>
-									<a href="https://github.com/daibhidhdwaum">{this.github} @daibhidhdwaum</a>
+									<Ripples color="#f1f8f8" during={1200}>
+										<a href="https://github.com/daibhidhdwaum">{this.github} @daibhidhdwaum</a>
+									</Ripples>
 								</li>
 								<li>
-									<a href="https://github.com/vigyan-k">{this.github} @vigyan-k</a>
+									<Ripples color="#f1f8f8" during={1200}>
+										<a href="https://github.com/vigyan-k">{this.github} @vigyan-k</a>
+									</Ripples>
 								</li>
 								<li>
-									<a href="https://github.com/OksanaSam">{this.github} @OksanaSam</a>
+									<Ripples color="#f1f8f8" during={1200}>
+										<a href="https://github.com/OksanaSam">{this.github} @OksanaSam</a>
+									</Ripples>
 								</li>
 								<li>
-									<a href="https://github.com/amay-zingg">{this.github} @amay-zingg</a>
+									<Ripples color="#f1f8f8" during={1200}>
+										<a href="https://github.com/amay-zingg">{this.github} @amay-zingg</a>
+									</Ripples>
 								</li>
 							</ul>
 						</div>
