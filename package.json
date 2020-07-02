@@ -20,6 +20,7 @@
     "react-favicon": "0.0.18",
     "react-onclickoutside": "^6.9.0",
     "react-read-more-less": "^0.1.6",
+    "react-ripples": "^2.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
