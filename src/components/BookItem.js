@@ -34,31 +34,7 @@ const BookItem = (props) => {
                 {props.description}
             </ReactReadMoreReadLess> 
              </div>) : null }
-
       </div>
-      <div className="writtenInfo info">
-        {props.isAdded ? (
-          <span className="bookmark">{bookMarkIcon}</span>
-        ) : (
-          <span className="bookmark">{outlinedBookmark}</span>
-        )}
-        <p className="author">{props.authors}</p>
-        <p>Genre: {props.genre}</p>
-        <p>Rating: {props.rating}/5</p>
-      </div>
-      {props.description ? (
-        <div className="bookDescription blurb">
-          <ReactReadMoreReadLess
-            charLimit={200}
-            readMoreText={<p className="moreOrLess">Read more ▼</p>}
-            readLessText={<p className="moreOrLess">Read less ▲</p>}
-            readMoreClassName="read-more-less--more"
-            readLessClassName="read-more-less--less"
-          >
-            {props.description}
-          </ReactReadMoreReadLess>
-        </div>
-      ) : null}
   );
 };
 

@@ -94,17 +94,13 @@ class Bookshelf extends Component {
                       </ReactReadMoreReadLess>
                     </div>
                   ) : null}
-                <button
-                  className="readButton"
-                  onClick={() => this.toggleRead(book.id)}
-                >
-                  Mark as Read
-                </button>
+                  
+                  <button className={`readButton ${book.isRead ? "toggledButton" : null}`} onClick={() => this.toggleRead(book.id)}>{ book.isRead ? "Mark as Unread": "Mark as Read" }</button>
 
-                <button
-                  className="delButton"
-                  onClick={() => this.deleteBook(book.id)}
-                >
+                  <button
+                    className="delButton"
+                    onClick={() => this.deleteBook(book.id)}
+                  >
                   Delete
                 </button>
               </li>
