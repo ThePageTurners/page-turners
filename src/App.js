@@ -82,7 +82,7 @@ class App extends Component {
 					</header>
 
 					<main>
-						<div>
+						<div className="wrapper">
 							<Route exact path="/" component={Home} />
 							<Route exact path="/search" component={Search} />
 							<Route exact path="/bookshelf" component={Bookshelf} />
