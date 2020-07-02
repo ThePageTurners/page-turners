@@ -84,8 +84,6 @@ class Bookshelf extends Component {
                       <ReactReadMoreReadLess
                         className="moreOrLess"
                         charLimit={200}
-                        // readMoreText={<p className="moreOrLess">Read more ▼</p>}
-                        // readLessText={<p className="moreOrLess">Read less ▲</p>}
                         readMoreText='read more ▼'
                         readLessText='...read less ▲'
                         readMoreClassName="read-more-less--more"
