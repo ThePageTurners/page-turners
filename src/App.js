@@ -35,19 +35,6 @@ class App extends Component {
 
 	github = <FontAwesomeIcon icon={faGithub} size="1x" />;
 
-	componentDidMount() {
-		const dbRef = firebase.database().ref();
-		dbRef.once('value', (response) => {
-			const data = response.val();
-			const newState = Object.keys(data);
-			console.log(data);
-			console.log(newState);
-			this.setState({
-				userNames: newState
-			});
-		});
-	}
-
 	handleChangeUser = (event) => {
 		this.setState({
 			activeUser: event.target.value
@@ -97,7 +84,7 @@ class App extends Component {
 					<main>
 						<div>
 							<Home />
-							<Route exact path="/page-turners" component={Home} />
+							{/* <Route exact path="/page-turners" component={Home} /> */}
 							<Route exact path="/search" component={Search} />
 							<Route exact path="/bookshelf" component={Bookshelf} />
 						</div>
