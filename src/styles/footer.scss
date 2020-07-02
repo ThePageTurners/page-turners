@@ -1,9 +1,8 @@
 footer {
     display: block;
-}
-
-footer{
     color: #fff;
+    background-color: $primary;
+    border-top: solid 1px (darken($color: $primary, $amount: 1));
 }
 
 .groupMembers ul li{
