@@ -83,8 +83,7 @@ class App extends Component {
 
 					<main>
 						<div>
-							<Home />
-							{/* <Route exact path="/page-turners" component={Home} /> */}
+							<Route exact path="/" component={Home} />
 							<Route exact path="/search" component={Search} />
 							<Route exact path="/bookshelf" component={Bookshelf} />
 						</div>
