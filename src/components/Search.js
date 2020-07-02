@@ -155,14 +155,15 @@ class Search extends Component {
 							return (
 							<li key={index}>
 								<BookItem
-								key={index}
-								title={book.volumeInfo.title}
-								authors={ book.volumeInfo.authors && book.volumeInfo.authors.length > 1 ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors }
-								description={book.volumeInfo.description}
-								genre={book.volumeInfo.categories}
-								rating={book.volumeInfo.averageRating}
-								thumbnail={ book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png" }
-								handleClickAdd={this.handleClickAdd}
+									key={index}
+									title={book.volumeInfo.title}
+									authors={ book.volumeInfo.authors && book.volumeInfo.authors.length > 1 ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors }
+									description={book.volumeInfo.description}
+									genre={book.volumeInfo.categories}
+									isAdded={book.isAdded}
+									rating={book.volumeInfo.averageRating}
+									thumbnail={ book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png" }
+									handleClickAdd={this.handleClickAdd}
 								/>
 								<button className={book.isAdded ? "toggledButton" : null} onClick={() => this.handleClickAdd(index)}>
 								{ !book.isAdded ? "Add Book": "Added" }
