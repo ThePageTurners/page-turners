@@ -10,7 +10,17 @@ a {
 	color: #000;
 }
 
-html{
+html {
 	font-size: 62.5%;
 }
 
+h1 {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+body{
+	font-family: $bodyFont;
+	background: $secondary;
+}

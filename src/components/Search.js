@@ -7,6 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import bookPlaceHolder from '../assets/bookPlaceholder.png';
 import '../App.scss';
 
+
 class Search extends Component {
 	constructor() {
 		super();
@@ -109,7 +110,7 @@ class Search extends Component {
 				/>
 				<button onClick={this.handleClick}>Search Book</button>
 				<button onClick={this.handleClick}>{this.searchIcon}</button>
-				<h1>Books!</h1>
+				{/* <h1>Books!</h1> */}
 				{!this.state.books ? (
 					<h1>There were no matches, please try again</h1>
 				) : (
