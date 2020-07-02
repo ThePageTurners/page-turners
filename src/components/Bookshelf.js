@@ -56,7 +56,7 @@ class Bookshelf extends Component {
                     {this.state.readingList.map((book, index) => {
                         return(
                     <li key={index}>
-                        <p>Title: { book.title ? `${book.title}` : "not available" }</p>
+                        <p>{ book.title ? `${book.title}` : "not available" }</p>
                         <p>Author: { book.author ? `${book.author}` : "not available" }</p>
                         { book.description ? 
                             (<div className="bookDescription blurb">
@@ -67,13 +67,15 @@ class Bookshelf extends Component {
                                 readMoreClassName="read-more-less--more"
                                 readLessClassName="read-more-less--less"
                             >
-                                {book.description}
+                            {book.description}
                             </ReactReadMoreReadLess> 
                             </div>) : null }
                         <p>Genre: { book.genre ? `${book.genre}` : "not available" }</p>
                         <p>Rating: { book.rating ? `${book.rating}` : "not available" }</p>
-                        <img src={book.imageLinks.thumbnail} alt={book.title}/>
-                        <button className={book.isRead ? "toggledButton" : null} onClick={() => this.toggleRead(book.id)}>{ book.isRead ? "Mark as Unread": "Mark as Read" }</button>
+
+                        <img src={ book.imageLinks ? book.imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png" } alt={book.title}/>
+                        <button onClick={() => this.toggleRead(book.id)}>Mark as Read</button>
+
                         <button onClick={() => this.deleteBook(book.id)}>Delete</button>
                     </li>
                     );

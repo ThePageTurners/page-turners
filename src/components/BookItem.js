@@ -20,8 +20,8 @@ const BookItem = (props) => {
         <div className="writtenInfo">
           { props.isAdded ? (<span>{bookMarkIcon}</span>) : (<span>{outlinedBookmark}</span>) } 
           <p className="author">{props.authors}</p>
-          <p>Genre: {props.genre}</p>
-          <p>Rating: {props.rating}/5</p>
+          <p>Genre: { props.genre ? `${props.genre}` : "not available" }</p>
+          <p>Rating: { props.rating ? `${props.rating}/5` : "not available" }</p>
         </div>
         { props.description ? 
             (<div className="bookDescription blurb">
