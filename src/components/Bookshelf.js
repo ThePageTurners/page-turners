@@ -17,7 +17,7 @@ class Bookshelf extends Component {
       const readingList = [];
       for (let key in data) {
         readingList.push({
-          id: key,
+          uniqueId: key,
           ...data[key],
         });
       }
@@ -31,7 +31,7 @@ class Bookshelf extends Component {
     const dbRef = firebase.database().ref("readingList");
     dbRef.once("value", (snapshot) => {
       const data = snapshot.val();
-      if (data[index].isRead === true) {
+      if (data[index].isRead) {
         dbRef.child(index).update({ isRead: false });
       } else {
         dbRef.child(index).update({ isRead: true });
@@ -94,11 +94,11 @@ class Bookshelf extends Component {
                     </div>
                   ) : null}
                   
-                  <button className={`readButton ${book.isRead ? "toggledButton" : null}`} onClick={() => this.toggleRead(book.id)}>{ book.isRead ? "Mark as Unread": "Mark as Read" }</button>
+                  <button className={`readButton ${book.isRead ? "toggledButton" : null}`} onClick={() => this.toggleRead(book.uniqueId)}>{ book.isRead ? "Mark as Unread": "Mark as Read" }</button>
 
                   <button
                     className="delButton"
-                    onClick={() => this.deleteBook(book.id)}
+                    onClick={() => this.deleteBook(book.uniqueId)}
                   >
                   Delete
                 </button>
