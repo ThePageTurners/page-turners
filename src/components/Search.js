@@ -61,7 +61,6 @@ class Search extends Component {
 
 	handleClickAdd = (index) => {
 		const dbRef = firebase.database().ref('readingList');
-		// const books = this.state.books;
 		const {title, authors, description, categories, averageRating, imageLinks} = this.state.books[index].volumeInfo;
 		const objectPush = {
 		  title: title,
@@ -110,13 +109,11 @@ class Search extends Component {
 				/>
 				<button onClick={this.handleClick}>Search Book</button>
 				<button onClick={this.handleClick}>{this.searchIcon}</button>
-				{/* <h1>Books!</h1> */}
 				{!this.state.books ? (
 					<h1>There were no matches, please try again</h1>
 				) : (
 					<ul>
 						{this.state.books.map((book, index) => {
-							// let searchedBook = book.volumeInfo;
 							if(book.volumeInfo.imageLinks === undefined){
 							book.volumeInfo.imageLinks = this.state.imageLinks;
 							}
