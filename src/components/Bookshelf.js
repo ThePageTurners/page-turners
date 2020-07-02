@@ -60,7 +60,7 @@ class Bookshelf extends Component {
                         <p>Description: { book.description ? `${book.description}` : "not available" }</p> 
                         <p>Genre: { book.genre ? `${book.genre}` : "not available" }</p>
                         <p>Rating: { book.rating ? `${book.rating}` : "not available" }</p>
-                        <img src={book.imageLinks.thumbnail} alt={book.title}/>
+                        <img src={ book.imageLinks ? book.imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png" } alt={book.title}/>
                         <button onClick={() => this.toggleRead(book.id)}>Mark as Read</button>
                         <button onClick={() => this.deleteBook(book.id)}>Delete</button>
                     </li>
