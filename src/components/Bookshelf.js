@@ -47,7 +47,6 @@ class Bookshelf extends Component {
   render() {
     const numReadBooks = this.state.readingList.filter((item) => item.isRead)
       .length;
-    // const readRatio = Math.round(numReadBooks / this.state.readingList.length);
     return (
       <div>
         <h2>Bookshelf</h2>
@@ -77,7 +76,7 @@ class Bookshelf extends Component {
                       Genre: {book.genre ? `${book.genre}` : "not available"}
                     </p>
                     <p>
-                      Rating: {book.rating ? `${book.rating}` : "not available"}
+                      Rating: {book.rating ? `${book.rating}/5` : "not available"}
                     </p>
                   </div>
                   {book.description ? (

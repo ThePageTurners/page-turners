@@ -16,8 +16,12 @@ const BookItem = (props) => {
       <div className="imageContainer bookImage">
         <img src={props.thumbnail} alt={props.title} />
         </div>
-        <div className="writtenInfo">
-          { props.isAdded ? (<span>{solidBookmarkIcon}</span>) : (<span>{outlinedBookmarkIcon}</span>) } 
+        <div className="writtenInfo info">
+          { props.isAdded ? (
+            <span className="bookmark">{solidBookmarkIcon}</span>
+          ) : (
+            <span className="bookmark">{outlinedBookmarkIcon}</span>
+          )} 
           <p className="author">{props.authors}</p>
           <p>Genre: { props.genre ? `${props.genre}` : "not available" }</p>
           <p>Rating: { props.rating ? `${props.rating}/5` : "not available" }</p>
@@ -26,8 +30,8 @@ const BookItem = (props) => {
             (<div className="bookDescription blurb">
             <ReactReadMoreReadLess
                 charLimit={200}
-                readMoreText={<p>Read more ▼</p>}
-                readLessText={<p>Read less ▲</p>}
+                readMoreText={<p className="moreOrLess">Read more ▼</p>}
+                readLessText={<p className="moreOrLess">Read less ▲</p>}
                 readMoreClassName="read-more-less--more"
                 readLessClassName="read-more-less--less"
             >

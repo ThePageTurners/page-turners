@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import Left from '../assets/leftArrow.png';
 
 function Navigation() {
 	return (
@@ -68,29 +67,10 @@ function DropdownMenu() {
 				<div className="menu">
 					<DropdownItem />
 					<DropdownItem2 />
-					<DropdownItem3 goToMenu="userLogin" />
 				</div>
 			</CSSTransition>
 
 			<CSSTransition in={activeMenu === 'userLogin'} unmountOnExit timeout={500} classNames="menuSecondary">
-				{/* LOGIN FORM */}
-				{/* <div className="menu">
-					{this.state.isLoggedIn === false ? (
-						<form className="login">
-							<input
-								aria-label="username"
-								type="text"
-								placeholder="Username"
-								value={this.state.activeUser}
-								onChange={this.handleChangeUser}
-								required
-							/>
-							<button type="submit" onClick={this.handleLogin}>
-								Login
-							</button>
-						</form>
-					) : null}
-				</div> */}
 				<DropdownItem4 goToMenu="main" />
 			</CSSTransition>
 		</div>

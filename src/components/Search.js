@@ -129,9 +129,6 @@ class Search extends Component {
   
 
 	render() {
-		if (this.state.hasError) {
-			return <h1>There were no matches, please try again</h1>;
-		}
 		return (
 			<Fragment>
 				<input
@@ -145,13 +142,10 @@ class Search extends Component {
 				<button onClick={this.handleClick}>Search Book</button>
 				<button onClick={this.handleClick}>{this.searchIcon}</button>
 				{!this.state.books ? (
-					<h1>There were no matches, please try again</h1>
+					<h2>There were no matches, please try again</h2>
 				) : (
 					<ul>
 						{this.state.books.map((book, index) => {
-							// if(book.volumeInfo.imageLinks === undefined){
-							// book.volumeInfo.imageLinks = this.state.imageLinks;
-							// }
 							return (
 							<li key={index}>
 								<BookItem
