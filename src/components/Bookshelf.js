@@ -56,7 +56,7 @@ class Bookshelf extends Component {
                     {this.state.readingList.map((book, index) => {
                         return(
                     <li key={index}>
-                        <p>Title: { book.title ? `${book.title}` : "not available" }</p>
+                        <p>{ book.title ? `${book.title}` : "not available" }</p>
                         <p>Author: { book.author ? `${book.author}` : "not available" }</p>
                         { book.description ? 
                             (<div className="bookDescription blurb">
@@ -67,7 +67,7 @@ class Bookshelf extends Component {
                                 readMoreClassName="read-more-less--more"
                                 readLessClassName="read-more-less--less"
                             >
-                                {book.description}
+                            {book.description}
                             </ReactReadMoreReadLess> 
                             </div>) : null }
                         <p>Genre: { book.genre ? `${book.genre}` : "not available" }</p>

@@ -95,7 +95,6 @@ class Search extends Component {
 				retrievedArray.map((item) => {
 					if (item.title === objectPush.title) {
 						Swal.fire({  title: 'Oops...', imageUrl: "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png", imageWidth: 400, imageHeight: 400, text: 'It looks like you have already added this book to your bookshelf!',  icon: 'error',  confirmButtonText: 'Cool'});
-						// alert("It looks like you have already added this book to your bookshelf!");
 						return;
 					} 
 				})
@@ -167,7 +166,7 @@ class Search extends Component {
 								/>
 								<button className={book.isAdded ? "toggledButton" : null} onClick={() => this.handleClickAdd(index)}>
 								{ !book.isAdded ? "Add Book": "Added" }
-								</button>)
+								</button>
 							</li>
 							);
 						})}
