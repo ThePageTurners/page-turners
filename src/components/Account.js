@@ -153,7 +153,7 @@ class Account extends Component {
                     thumbnail={book.volumeInfo.imageLinks.thumbnail}
                     handleClickAdd={this.handleClickAdd}
                   />
-                  <button className="addBook" onClick={() => this.handleClickAdd(index)}>
+                  <button className="addButton" onClick={() => this.handleClickAdd(index)}>
                     Add Book
                   </button>
                 </li>

@@ -79,6 +79,10 @@ h3 {
   padding: 0;
 }
 
+li {
+  margin: 0;
+}
+
 p {
   font-size: clamp(1.5rem, 2vh, 2rem);
   line-height: 2.7rem;
@@ -103,15 +107,14 @@ button {
   padding: 1rem 3rem;
   margin: 1rem 0;
   border-radius: 5px;
+  height: 5rem;
 }
 
 .book {
-  //   background-color: $secondary;
   padding: 1rem;
-  margin-top: 4rem;
 }
 
-.book h2 {
+.book h3 {
   margin: 2rem 0;
 }
 
@@ -129,7 +132,7 @@ button {
   }
 }
 
-.bookInfo {
+.book {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -137,42 +140,60 @@ button {
     "bookImage info info"
     "bookImage info info"
     "blurb blurb blurb"
-    "read del .";
-
-    margin-top: 10rem;
+    "read read ."
+    "del . .";
+  margin-top: 4rem;
+  .bookmark {
+    padding-bottom: 1rem;
+  }
   p {
     margin: 0;
     padding: 0 1rem;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
   .bookDescription {
-    padding: 2rem 0;
+    padding-top: 2rem;
+    font-size: 1.8rem;
+  }
+  .moreOrLess {
+    color: #000;
+    font-size: 1.2rem;
+    padding: 0;
   }
 }
-.title{
+.title {
   grid-area: title;
 }
-.bookImage{
+
+.bookImage {
   grid-area: bookImage;
 }
+
 .blurb {
   grid-area: blurb;
 }
+
 .info {
   grid-area: info;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
-.readButton{
+
+.readButton {
   grid-area: read;
 }
-.delButton{
+
+.delButton {
   grid-area: del;
+}
+
+span.bookmark {
+  padding-left: 1rem;
+}
+
+.bookImage img {
+  max-width: 13re;
 }
 
 // NEEDS STYLING
 button.toggledButton {
-  background: rgba(99,113,146,1);
+  background: rgba(99, 113, 146, 1);
 }
-
