@@ -2,13 +2,13 @@ import React from "react";
 // import ReadMoreReact from 'read-more-react';
 import ReactReadMoreReadLess from 'react-read-more-less';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark as solidBookmark} from '@fortawesome/free-solid-svg-icons';
+import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as outlineBookmark } from '@fortawesome/free-regular-svg-icons';
 
 const BookItem = (props) => {
 
- let bookMarkIcon = <FontAwesomeIcon icon={solidBookmark} size="2x"/>;
-  let outlinedBookmark = <FontAwesomeIcon icon={outlineBookmark} size="2x"/>;
+  let solidBookmarkIcon = <FontAwesomeIcon icon={solidBookmark} size="2x"/>;
+  let outlinedBookmarkIcon = <FontAwesomeIcon icon={outlineBookmark} size="2x"/>;
 
   return (
     <div className="book">
@@ -18,7 +18,7 @@ const BookItem = (props) => {
           <img src={props.thumbnail} alt={props.title} />
         </div>
         <div className="writtenInfo">
-          { props.isAdded ? (<span>{bookMarkIcon}</span>) : (<span>{outlinedBookmark}</span>) } 
+          { props.isAdded ? (<span>{solidBookmarkIcon}</span>) : (<span>{outlinedBookmarkIcon}</span>) } 
           <p className="author">{props.authors}</p>
           <p>Genre: { props.genre ? `${props.genre}` : "not available" }</p>
           <p>Rating: { props.rating ? `${props.rating}/5` : "not available" }</p>
