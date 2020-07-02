@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../Firebase/index.js";
+import ReactReadMoreReadLess from 'react-read-more-less';
 
 class Bookshelf extends Component {
     constructor() {
@@ -57,11 +58,24 @@ class Bookshelf extends Component {
                     <li key={index}>
                         <p>Title: { book.title ? `${book.title}` : "not available" }</p>
                         <p>Author: { book.author ? `${book.author}` : "not available" }</p>
-                        <p>Description: { book.description ? `${book.description}` : "not available" }</p> 
+                        { book.description ? 
+                            (<div className="bookDescription blurb">
+                            <ReactReadMoreReadLess
+                                charLimit={200}
+                                readMoreText={<p>Read more ▼</p>}
+                                readLessText={<p>Read less ▲</p>}
+                                readMoreClassName="read-more-less--more"
+                                readLessClassName="read-more-less--less"
+                            >
+                                {book.description}
+                            </ReactReadMoreReadLess> 
+                            </div>) : null }
                         <p>Genre: { book.genre ? `${book.genre}` : "not available" }</p>
                         <p>Rating: { book.rating ? `${book.rating}` : "not available" }</p>
+
                         <img src={ book.imageLinks ? book.imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png" } alt={book.title}/>
                         <button onClick={() => this.toggleRead(book.id)}>Mark as Read</button>
+
                         <button onClick={() => this.deleteBook(book.id)}>Delete</button>
                     </li>
                     );
