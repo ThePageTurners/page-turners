@@ -1,8 +1,14 @@
 import React from "react";
 // import ReadMoreReact from 'read-more-react';
 import ReactReadMoreReadLess from 'react-read-more-less';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark as solidBookmark} from '@fortawesome/free-solid-svg-icons';
+import { faBookmark as outlineBookmark } from '@fortawesome/free-regular-svg-icons';
 
 const BookItem = (props) => {
+
+ let bookMarkIcon = <FontAwesomeIcon icon={solidBookmark} size="2x"/>;
+  let outlinedBookmark = <FontAwesomeIcon icon={outlineBookmark} size="2x"/>;
 
   return (
     <div className="book">
@@ -12,11 +18,8 @@ const BookItem = (props) => {
           <img src={props.thumbnail} alt={props.title} />
         </div>
         <div className="writtenInfo">
-          {props.authors && props.authors.length > 1 ? (
-            <p className="author">{props.authors.join(", ")}</p>
-          ) : (
-            <p className="author">{props.authors}</p>
-          )}
+          { props.isAdded ? (<span>{bookMarkIcon}</span>) : (<span>{outlinedBookmark}</span>) } 
+          <p className="author">{props.authors}</p>
           <p>Genre: {props.genre}</p>
           <p>Rating: {props.rating}/5</p>
         </div>
