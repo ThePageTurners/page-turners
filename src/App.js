@@ -24,7 +24,7 @@ class App extends Component {
 				<div className="App">
 					<header>
 						<Ripples className="h1" color="#f1f8f8" during={1200}>
-							<Link to="/" className="pageTitle">
+							<Link to="/page-turners" className="pageTitle">
 								<h1>Page Turners</h1>
 							</Link>
 						</Ripples>
@@ -34,7 +34,7 @@ class App extends Component {
 
 					<main>
 						<div className="wrapper">
-							<Route exact path="/" component={Home} />
+							<Route exact path="/page-turners" component={Home} />
 							<Route exact path="/search" component={Search} />
 							<Route exact path="/bookshelf" component={Bookshelf} />
 						</div>
