@@ -33,12 +33,12 @@ class Footer extends Component {
 
 		return (
 			<footer>
-				<div className="groupMembers">
+				<div className="groupMembers wrapper">
 					<h3>Group Project By:</h3>
 					<ul>
-						{this.state.members.map((item) => {
+						{this.state.members.map((item,index) => {
 							return (
-								<li>
+								<li key={index}>
 									<Ripples color="#f1f8f8" during={1200}>
 										<a href={item.link}>
 											{github} {item.person}
