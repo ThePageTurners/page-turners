@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -13,21 +12,24 @@ import Bookshelf from "./components/Bookshelf";
 // * * * * ROUTER ELEMENTS END
 
 class App extends Component {
-
+  
 	render() {
 		return (
-			<Router>
-				<div className="App">
-					<header>
-						<Ripples className="h1" color="#f1f8f8" during={1200}>
-							<Link to="/page-turners" className="pageTitle">
-								<h1>Page Turners</h1>
-							</Link>
-						</Ripples>
+      <Router>
+        <div className="App">
+          <header>
+            <div className="wrapper">
+              <div className="headerContent">
+                <Ripples className="h1" color="#f1f8f8" during={1200}>
+                  <Link to="/" className="pageTitle">
+                    <h1>Page Turners</h1>
+                  </Link>
+                </Ripples>
 
-						<Navigation />
-					</header>
-
+                <Navigation />
+              </div>
+            </div>
+          </header>
 					<main>
 						<div className="wrapper">
 							<Route exact path="/page-turners" component={Home} />

@@ -1,34 +1,43 @@
-footer {
-    display: block;
-    height: 100%;
-    padding: 2%;
+footer,
+.groupMembers ul li a {
     color: #fff;
-    background-color: $primary;
-    border-top: solid 1px (darken($color: $primary, $amount: 1));
 }
 
-.groupMembers h3 {
+.groupMembers ul,
+.groupMembers ul li {
+    width: 100%;
+}
+
+footer {
+  display: block;
+  height: 100%;
+  padding: 2%;
+  background-color: $primary;
+  border-top: solid 1px (darken($color: $primary, $amount: 1));
+}
+
+.groupMembers {
+  h3 {
     font-size: clamp(2rem, 3vh, 3rem);
     text-align: center;
-}
-
-.groupMembers ul {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
-}
-
-.groupMembers ul li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: .3rem 0;
-    width: 50%;
-}
-
-.groupMembers ul li a {
+  }
+  ul {
+      display: flex;
+      flex-direction: column;
+      max-width: 180px;
+      margin: 0 auto;
+      padding-top: 2rem;
+  }
+  ul li {
+    padding: .5rem;
+  }
+  ul li a {
     font-size: clamp(1.5rem, 2vh, 2rem);
-    color: #fff;
+  }
+  
+  ul li a:hover {
+    color: #000;
+  }
 }
 
 .groupMembers ul li a:hover,
