@@ -26,7 +26,8 @@ class Search extends Component {
 			responseType: "JSON",
 			params: {
 				key: "AIzaSyD7Ytli5GUZu5S7FoaFn-sSMzsdWuwv_8E",
-				q: searchItem
+				q: searchItem,
+				maxResults: 40,
 			}
 		})
 			.then((response) => {
