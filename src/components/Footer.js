@@ -10,19 +10,19 @@ class Footer extends Component {
 			members: [
 				{
 					link: 'https://github.com/daibhidhdwaum',
-					person: '@daibhidhdwaum'
+					person: 'daibhidhdwaum'
 				},
 				{
 					link: 'https://github.com/vigyan-k',
-					person: '@vigyan-k'
+					person: 'vigyan-k'
 				},
 				{
 					link: 'https://github.com/OksanaSam',
-					person: '@OksanaSam'
+					person: 'OksanaSam'
 				},
 				{
 					link: 'https://github.com/amay-zingg',
-					person: '@amay-zingg'
+					person: 'amay-zingg'
 				}
 			]
 		};

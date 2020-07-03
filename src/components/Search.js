@@ -173,6 +173,7 @@ class Search extends Component {
 		return (
 			<Fragment>
 				<div className="inputSearch">
+          <h2>Find your next read!</h2>
 					<label className="visuallyHidden">Search a book by title or author</label>
 					<input
 						type="text"

@@ -61,14 +61,12 @@ a.pageTitle {
   justify-content: center;
 }
 
-a.pageTitle:hover,
-.bookDropdownLink:hover,
-.dropdown li:hover {
-  filter: brightness(1.2);
-}
+a.pageTitle,
+.bookDropdownLink {
+        filter: brightness(1.2);
+      }
 
-
-.bookDropdownLink h1 {
+h1 {
   font-family: $headingFont;
   font-size: clamp(3.3rem, 1vh, 5rem);
 }
@@ -86,7 +84,7 @@ a.pageTitle {
 }
 
 .react-ripples.h1 {
-  width: 23.5rem;
+  width: 22rem;
 }
 
 .react-ripples {

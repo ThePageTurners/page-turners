@@ -28,8 +28,9 @@
         margin: 0;
     }
     
-    a.pageTitle,
-    .bookDropdownLink {
+    a.pageTitle:hover,
+    .bookDropdownLink:hover,
+    .dropdown li:hover {
         filter: brightness(1.2);
     }
 

@@ -21,7 +21,7 @@ class App extends Component {
             <div className="wrapper">
               <div className="headerContent">
                 <Ripples className="h1" color="#f1f8f8" during={1200}>
-                  <Link to="/" className="pageTitle">
+                  <Link to="/page-turners" className="pageTitle">
                     <h1>Page Turners</h1>
                   </Link>
                 </Ripples>
