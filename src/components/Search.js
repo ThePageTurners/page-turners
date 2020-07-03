@@ -26,7 +26,8 @@ class Search extends Component {
 			responseType: "JSON",
 			params: {
 				key: "AIzaSyD7Ytli5GUZu5S7FoaFn-sSMzsdWuwv_8E",
-				q: searchItem
+				q: searchItem,
+				maxResults: 40,
 			}
 		})
 			.then((response) => {
@@ -168,18 +169,18 @@ class Search extends Component {
 				) : (
 					<ul className="bookSearch">
 						{this.state.books.map((book, index) => {
-							const  { title, authors, description, categories, averageRating } = book.volumeInfo;
+							const  { title, authors, description, categories, averageRating, imageLinks } = book.volumeInfo;
 							return (
 							<li className="listResult" key={index}>
 								<BookItem
 									key={index}
 									title={title}
-									authors={ authors && authors.length > 1 ? authors.join(", ") : authors }
+									authors={authors && authors.length > 1 ? authors.join(", ") : authors}
 									description={description}
 									genre={categories}
 									isAdded={book.isAdded}
 									rating={averageRating}
-									thumbnail={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png"}
+									thumbnail={imageLinks ? imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png"}
 									handleClickAdd={this.handleClickAdd}
 								/>
 								<button className={book.isAdded ? "toggledButton" : null} onClick={() => this.handleClickAdd(index)}>
