@@ -28,8 +28,9 @@ footer {
 
 .groupMembers ul li a{
     font-size: clamp(1.5rem, 2vh, 2rem);
+    color: #fff;
 }
 
 .groupMembers ul li a:hover{
-    color: white;
+    color: #000;
 }

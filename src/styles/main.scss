@@ -29,7 +29,7 @@
 
 // * * * * THE SEARCH PAGE
 main {
-  height: 100%;
+  min-height: 70vh;
 }
 
 form,
@@ -109,6 +109,7 @@ button {
   margin: 1rem 0;
   border-radius: 5px;
   height: 5rem;
+  width: 21rem;
 }
 
 .book {
@@ -119,7 +120,7 @@ button {
   margin: 2rem 0;
 }
 
-.bookSearch .book {
+.book {
   .imageContainer {
     width: 100%;
   }
@@ -127,6 +128,7 @@ button {
     display: block;
     width: 100%;
     max-width: 15rem;
+    max-height: 19rem
   }
   button {
     align-items: center;
@@ -137,13 +139,14 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "title title title"
+    "title title title "
     "bookImage info info"
     "bookImage info info"
     "blurb blurb blurb"
-    "read read ."
-    "del . .";
-  margin-top: 4rem;
+    "read read . "
+    "del del . ";
+  // margin-top: 4rem;
+  max-width: 56rem;
   .bookmark {
     padding-bottom: 1rem;
   }
@@ -201,4 +204,16 @@ button.toggledButton {
 
 .readMoreClass{
   color: #000;
+}
+
+.listResult,
+.bookListing{
+  border-radius: 15px;
+  background-color: rgba(99, 113, 146, 0.2);
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.searchButton{
+  margin-right:10px;
 }

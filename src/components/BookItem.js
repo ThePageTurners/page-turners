@@ -7,7 +7,7 @@ import { faBookmark as outlineBookmark } from "@fortawesome/free-regular-svg-ico
 
 const BookItem = (props) => {
 
-  let solidBookmarkIcon = <FontAwesomeIcon icon={solidBookmark} size="2x" className="bookmark"/>;
+  let solidBookmarkIcon = <FontAwesomeIcon icon={solidBookmark} size="3x" className="bookmark"/>;
   let outlinedBookmarkIcon = <FontAwesomeIcon icon={outlineBookmark} size="2x"/>;
 
   return (
@@ -30,8 +30,8 @@ const BookItem = (props) => {
             (<div className="bookDescription blurb">
             <ReactReadMoreReadLess
                 charLimit={200}
-                readMoreText={<p className="moreOrLess">Read more ▼</p>}
-                readLessText={<p className="moreOrLess">Read less ▲</p>}
+                readMoreText='read more ▼'
+                readLessText='...read less ▲'
                 readMoreClassName="read-more-less--more"
                 readLessClassName="read-more-less--less"
             >

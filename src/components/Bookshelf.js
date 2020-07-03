@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import firebase from "../Firebase/index.js";
 import ReactReadMoreReadLess from "react-read-more-less";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookReader } from '@fortawesome/free-solid-svg-icons';
 
 class Bookshelf extends Component {
   constructor() {
@@ -10,6 +12,8 @@ class Bookshelf extends Component {
     };
   }
 
+  bookReader = <FontAwesomeIcon  icon={faBookReader} size="1x" />
+
   componentDidMount() {
     const dbRef = firebase.database().ref("readingList");
     dbRef.on("value", (snapshot) => {
@@ -17,7 +21,7 @@ class Bookshelf extends Component {
       const readingList = [];
       for (let key in data) {
         readingList.push({
-          id: key,
+          uniqueId: key,
           ...data[key],
         });
       }
@@ -31,7 +35,7 @@ class Bookshelf extends Component {
     const dbRef = firebase.database().ref("readingList");
     dbRef.once("value", (snapshot) => {
       const data = snapshot.val();
-      if (data[index].isRead === true) {
+      if (data[index].isRead) {
         dbRef.child(index).update({ isRead: false });
       } else {
         dbRef.child(index).update({ isRead: true });
@@ -49,14 +53,15 @@ class Bookshelf extends Component {
       .length;
     return (
       <div>
-        <h2>Bookshelf</h2>
-        <h2>
+        <h2>{this.bookReader} Bookshelf </h2>
+        
+        <p>
           You have read {numReadBooks} out of {this.state.readingList.length}{" "}
-        </h2>
-        <ul>
+        </p>
+        <ul className="bookResults">
           {this.state.readingList.map((book, index) => {
             return (
-              <li key={index} className="book">
+              <li key={index} className="book bookListing">
                 <h3 className="title">{book.title ? `${book.title}` : "not available"}</h3>
                   <div className="imageContainer bookImage">
                     <img
@@ -84,8 +89,6 @@ class Bookshelf extends Component {
                       <ReactReadMoreReadLess
                         className="moreOrLess"
                         charLimit={200}
-                        // readMoreText={<p className="moreOrLess">Read more ▼</p>}
-                        // readLessText={<p className="moreOrLess">Read less ▲</p>}
                         readMoreText='read more ▼'
                         readLessText='...read less ▲'
                         readMoreClassName="read-more-less--more"
@@ -96,11 +99,11 @@ class Bookshelf extends Component {
                     </div>
                   ) : null}
                   
-                  <button className={`readButton ${book.isRead ? "toggledButton" : null}`} onClick={() => this.toggleRead(book.id)}>{ book.isRead ? "Mark as Unread": "Mark as Read" }</button>
+                  <button className={`readButton ${book.isRead ? "toggledButton" : null}`} onClick={() => this.toggleRead(book.uniqueId)}>{ book.isRead ? "Mark as Unread": "Mark as Read" }</button>
 
                   <button
                     className="delButton"
-                    onClick={() => this.deleteBook(book.id)}
+                    onClick={() => this.deleteBook(book.uniqueId)}
                   >
                   Delete
                 </button>

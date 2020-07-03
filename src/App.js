@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import firebase from './Firebase/index.js';
 import Navigation from './components/Navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -41,31 +40,6 @@ class App extends Component {
 		});
 	};
 
-	handleLogin = (event) => {
-		if (this.state.activeUser !== '') {
-			event.preventDefault();
-			const userNames = this.state.userNames;
-			const userName = this.state.activeUser;
-			console.log(userName);
-			const dbRef = firebase.database().ref(this.state.activeUser);
-			console.log(dbRef);
-			if (userNames.includes(userName)) {
-				alert('Hello again!');
-			} else {
-				alert('Welcome, new user!');
-				//creating an object in firebase with userName as a key
-				dbRef.set([ 1, 2, 3 ]);
-			}
-
-			//removing login form from the UI
-			this.setState({
-				isLoggedIn: true
-			});
-		} else {
-			alert('Please enter your name!');
-		}
-	};
-
 	render() {
 		return (
 			<Router>
@@ -81,8 +55,8 @@ class App extends Component {
 					</header>
 
 					<main>
-						<div>
-							{/* <Route path="/" component={Home} /> */}
+						<div className="wrapper">
+							<Route exact path="/" component={Home} />
 							<Route exact path="/search" component={Search} />
 							<Route exact path="/bookshelf" component={Bookshelf} />
 						</div>
