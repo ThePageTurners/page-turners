@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Navigation from './components/Navigation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import Favicon from 'react-favicon';
-// import ReactDOM from 'react-dom';
-import './App.scss';
+import Footer from './components/Footer';
 import Ripples from 'react-ripples';
+import './App.scss';
 
 // * * * * ROUTER ELEMENTS
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -15,8 +12,6 @@ import Bookshelf from './components/Bookshelf';
 // * * * * ROUTER ELEMENTS END
 
 class App extends Component {
-
-	github = <FontAwesomeIcon icon={faGithub} size="1x" />;
 
 	render() {
 		return (
@@ -40,33 +35,7 @@ class App extends Component {
 						</div>
 					</main>
 
-					<footer>
-						<div className="groupMembers">
-							<h3>Group Project By:</h3>
-							<ul>
-								<li>
-									<Ripples color="#f1f8f8" during={1200}>
-										<a href="https://github.com/daibhidhdwaum">{this.github} @daibhidhdwaum</a>
-									</Ripples>
-								</li>
-								<li>
-									<Ripples color="#f1f8f8" during={1200}>
-										<a href="https://github.com/vigyan-k">{this.github} @vigyan-k</a>
-									</Ripples>
-								</li>
-								<li>
-									<Ripples color="#f1f8f8" during={1200}>
-										<a href="https://github.com/OksanaSam">{this.github} @OksanaSam</a>
-									</Ripples>
-								</li>
-								<li>
-									<Ripples color="#f1f8f8" during={1200}>
-										<a href="https://github.com/amay-zingg">{this.github} @amay-zingg</a>
-									</Ripples>
-								</li>
-							</ul>
-						</div>
-					</footer>
+					<Footer />
 				</div>
 			</Router>
 		);
