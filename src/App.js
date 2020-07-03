@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import firebase from "./Firebase/index.js";
 import Navigation from "./components/Navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import Favicon from "react-favicon";
-import ReactDOM from "react-dom";
+import Footer from "./components/Footer";
 import "./App.scss";
 import Ripples from "react-ripples";
 
@@ -15,55 +11,8 @@ import Search from "./components/Search";
 import Bookshelf from "./components/Bookshelf";
 // * * * * ROUTER ELEMENTS END
 
-ReactDOM.render(
-	<div>
-		<Favicon url="favicon.ico" />
-	</div>,
-	document.getElementById("root")
-);
-
 class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-			user: {},
-			isLoggedIn: false,
-			userNames: "",
-			activeUser: ""
-		};
-	}
-
-	github = <FontAwesomeIcon icon={faGithub} size="1x" />;
-
-	handleChangeUser = (event) => {
-		this.setState({
-			activeUser: event.target.value
-		});
-	};
-
-	handleLogin = (event) => {
-		if (this.state.activeUser !== "") {
-			event.preventDefault();
-			const userNames = this.state.userNames;
-			const userName = this.state.activeUser;
-			const dbRef = firebase.database().ref(this.state.activeUser);
-			if (userNames.includes(userName)) {
-				alert("Hello again!");
-			} else {
-				alert("Welcome, new user!");
-				//creating an object in firebase with userName as a key
-				dbRef.set([ 1, 2, 3 ]);
-			}
-
-			//removing login form from the UI
-			this.setState({
-				isLoggedIn: true
-			});
-		} else {
-			alert("Please enter your name!");
-		}
-	};
-
+  
 	render() {
 		return (
       <Router>
@@ -81,53 +30,17 @@ class App extends Component {
               </div>
             </div>
           </header>
-
-          <main>
-            <div className="wrapper">
-              <Route exact path="/page-turners" component={Home} />
-              <Route exact path="/search" component={Search} />
-              <Route exact path="/bookshelf" component={Bookshelf} />
-            </div>
-          </main>
-
-          <footer>
-            <div className="groupMembers">
-              <h3>Group Project By:</h3>
-              <ul>
-                <li>
-                  <Ripples color="#f1f8f8" during={1200}>
-                    <a href="https://github.com/daibhidhdwaum">
-                      {this.github} @daibhidhdwaum
-                    </a>
-                  </Ripples>
-                </li>
-                <li>
-                  <Ripples color="#f1f8f8" during={1200}>
-                    <a href="https://github.com/vigyan-k">
-                      {this.github} @vigyan-k
-                    </a>
-                  </Ripples>
-                </li>
-                <li>
-                  <Ripples color="#f1f8f8" during={1200}>
-                    <a href="https://github.com/OksanaSam">
-                      {this.github} @OksanaSam
-                    </a>
-                  </Ripples>
-                </li>
-                <li>
-                  <Ripples color="#f1f8f8" during={1200}>
-                    <a href="https://github.com/amay-zingg">
-                      {this.github} @amay-zingg
-                    </a>
-                  </Ripples>
-                </li>
-              </ul>
-            </div>
-          </footer>
-        </div>
-      </Router>
-    );
+					<main>
+						<div className="wrapper">
+							<Route exact path="/page-turners" component={Home} />
+							<Route exact path="/search" component={Search} />
+							<Route exact path="/bookshelf" component={Bookshelf} />
+						</div>
+					</main>
+					<Footer />
+				</div>
+			</Router>
+		);
 	}
 }
 

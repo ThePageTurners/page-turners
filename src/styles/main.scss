@@ -167,21 +167,25 @@ input {
     "del del . ";
   max-width: 56rem;
   padding: 1rem;
+  
 .bookmark {
     padding-bottom: 1rem;
   }
-  p {
-    margin: 0;
-    padding: 0 1rem;
-    font-size: 1.4rem;
-  }
+
   .bookDescription {
     padding-top: 2rem;
     font-size: 1.8rem;
   }
+
   .moreOrLess {
     color: #000;
     font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0;
+    padding: 0 1rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -195,7 +199,7 @@ input {
 }
 
 .listResult,
-.bookListing{
+.bookListing {
   background-color: rgba(99, 113, 146, 0.2);
   padding:2rem;
   margin-bottom:2rem;
@@ -204,12 +208,10 @@ input {
 // grid areas
 .title {
   grid-area: title;
-  
 }
 
 .bookImage {
   grid-area: bookImage;
-  
 }
 
 .blurb {
@@ -218,7 +220,6 @@ input {
 
 .info {
   grid-area: info;
-
 }
 
 .readButton {
@@ -229,7 +230,31 @@ input {
   grid-area: del;
 }
 
+button.toggledButton {
+  background: rgba(99, 113, 146, 1);
+}
 
+.inputSearch {
+  display: inline-block;
+  width: 35rem;
+ }
 
+ .inputSearch button {
+  background: transparent;
+  border: none;
+  color: $accent;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  bottom: 4.4rem;
+  left: 86%;
+  padding: 0.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  z-index: 1;
+ }
 
-
+.inputSearch button:hover,
+.inputSearch button:focus {
+ color: $primary;
+}

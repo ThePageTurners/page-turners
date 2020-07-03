@@ -25,24 +25,23 @@ const BookItem = (props) => {
             <span className="bookmark">{outlinedBookmarkIcon}</span>
           )}
           <p className="author">{props.authors}</p>
-          <p>Genre: {props.genre ? `${props.genre}` : "not available"}</p>
-          <p>Rating: {props.rating ? `${props.rating}/5` : "not available"}</p>
-        </div>
-      {props.description ? (
-        <div className="bookDescription blurb">
-          <ReactReadMoreReadLess
-            charLimit={200}
-            readMoreText="read more ▼"
-            readLessText="...read less ▲"
-            readMoreClassName="read-more-less--more"
-            readLessClassName="read-more-less--less"
-          >
-            {props.description}
-          </ReactReadMoreReadLess>
-        </div>
 
-      ) : null}
-    </div>
+          <p>Genre: {props.genre ? `${props.genre}` : "Not available"}</p>
+          <p>Rating: {props.rating ? `${props.rating}/5` : "Not available"}</p>
+        </div>
+        {props.description ? 
+            (<div className="bookDescription blurb">
+            <ReactReadMoreReadLess
+                charLimit={200}
+                readMoreText=" read more ▼"
+                readLessText=" read less ▲"
+                readMoreClassName="read-more-less--more"
+                readLessClassName="read-more-less--less"
+            >
+                {props.description}
+            </ReactReadMoreReadLess> 
+             </div>) : null }
+      </div>
   );
 };
 

@@ -169,68 +169,51 @@ class Search extends Component {
         }
   };
 
-  render() {
-    return (
-      <Fragment>
-        <input
-          type="text"
-          placeholder="Title / Author"
-          value={this.state.userInput}
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-          name="userInput"
-        />
-        <button className="searchButton" onClick={this.handleSearchClick}>
-          {this.searchIcon}
-        </button>
-        {!this.state.books ? (
-          <h2>There were no matches, please try again</h2>
-        ) : (
-          <ul className="bookSearch">
-            {this.state.books.map((book, index) => {
-              const {
-                title,
-                authors,
-                description,
-                categories,
-                averageRating,
-                imageLinks,
-              } = book.volumeInfo;
-              return (
-                <li className="listResult" key={index}>
-                  <BookItem
-                    key={index}
-                    title={title}
-                    authors={
-                      authors && authors.length > 1
-                        ? authors.join(", ")
-                        : authors
-                    }
-                    description={description}
-                    genre={categories}
-                    isAdded={book.isAdded}
-                    rating={averageRating}
-                    thumbnail={
-                      imageLinks
-                        ? imageLinks.thumbnail
-                        : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png"
-                    }
-                    handleClickAdd={this.handleClickAdd}
-                  />
-                  <button
-                    className={book.isAdded ? "toggledButton" : null}
-                    onClick={() => this.handleClickAdd(index)}
-                  >
-                    {!book.isAdded ? "Add Book" : "Added"}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </Fragment>
-    );
-  }
+	render() {
+		return (
+			<Fragment>
+				<div className="inputSearch">
+					<label className="visuallyHidden">Search a book by title or author</label>
+					<input
+						type="text"
+						placeholder="Title / Author"
+						value={this.state.userInput}
+						onChange={this.handleChange}
+						onKeyPress={this.handleKeyPress}
+						name="userInput"
+					/>
+					<button className="searchButton" onClick={this.handleSearchClick}>{this.searchIcon}</button>
+				</div>
+				{!this.state.books ? (
+					<h2>There were no matches, please try again</h2>
+				) : (
+					<ul className="bookSearch">
+						{this.state.books.map((book, index) => {
+							const  { title, authors, description, categories, averageRating, imageLinks } = book.volumeInfo;
+							return (
+								<li className="listResult" key={index}>
+									<BookItem
+										key={index}
+										title={title}
+										authors={authors && authors.length > 1 ? authors.join(", ") : authors}
+										description={description}
+										genre={categories}
+										isAdded={book.isAdded}
+										rating={averageRating}
+										thumbnail={imageLinks ? imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png"}
+										handleClickAdd={this.handleClickAdd}
+									/>
+									<button className={book.isAdded ? "toggledButton" : null} onClick={() => this.handleClickAdd(index)}>
+										{!book.isAdded ? "Add Book": "Added"}
+									</button>
+								</li>
+							);
+						})}
+					</ul>
+				)}
+			</Fragment>
+		);
+	}
 }
 
 export default Search;

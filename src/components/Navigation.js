@@ -7,7 +7,7 @@ function Navigation() {
 
 	function navToggle() {
 		setOpen(wasOpened => !wasOpened)
-	}
+	};
 	
 	return (
       <div className="bookDropdownLink">
