@@ -21,7 +21,7 @@ h1 {
 }
 
 h1::after {
-	content: '';
+	content: "";
 	position: absolute;
 	width: 100%;
 	border-bottom: $accent 2px solid;
