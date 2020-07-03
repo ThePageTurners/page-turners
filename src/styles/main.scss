@@ -145,18 +145,22 @@ button {
     "read read . "
     "del del . ";
   max-width: 56rem;
+  
   .bookmark {
     padding-bottom: 1rem;
   }
+
   .bookDescription {
     padding-top: 2rem;
     font-size: 1.8rem;
   }
+
   .moreOrLess {
     color: #000;
     font-size: 1.2rem;
     padding: 0;
   }
+
   p {
     margin: 0;
     padding: 0 1rem;
@@ -210,6 +214,7 @@ button.toggledButton {
   background-color: rgba(99, 113, 146, 0.2);
   padding:20px;
   margin-bottom:20px;
+  max-width:70%;
 }
 
 .searchButton {
