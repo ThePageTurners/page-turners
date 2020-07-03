@@ -42,15 +42,15 @@
     .intro h2 {
         margin-bottom: 3%;
     }
-
-    .listResult,
-    .bookListing {
-        min-width: 100%;
-    }
 }
 
 @media (min-width: 1200px) {
     .wrapper {
         width: 100%;
+    }
+
+    .listResult,
+    .bookListing {
+        max-width: 70%;
     }
 }

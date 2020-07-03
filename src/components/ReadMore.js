@@ -19,7 +19,7 @@ class ReadMore extends React.Component {
                 {children.substr(0, charLimit)}...
                 <span
                     className="readMoreText"
-                    style={{ color: "#FFF", cursor: "pointer", "text-transform": "uppercase", background: "#637192", margin: "5px" }}
+                    style={{ color: "#FFF", cursor: "pointer", "textTransform": "uppercase", background: "#637192", margin: "5px" }}
                     role="presentation"
                     onClick={this.showLongText.bind(this)}
                 >
