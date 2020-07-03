@@ -56,7 +56,7 @@ class Bookshelf extends Component {
         <p>
           You have read {numReadBooks} out of {this.state.readingList.length}{" "}
         </p>
-        <ul className="bookResults">
+        <ul>
           {this.state.readingList.map((book, index) => {
             return (
               <li key={index} className="book bookListing">
