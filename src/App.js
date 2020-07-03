@@ -45,13 +45,12 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<header>
-
 						<Ripples className="h1" color="#f1f8f8" during={1200}>
-							<Link to="/" className="pageTitle">
+							<Link to="/home" className="pageTitle">
 								<h1>Page Turners</h1>
 							</Link>
 						</Ripples>
-      
+
 						<Navigation />
 					</header>
 
