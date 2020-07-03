@@ -19,7 +19,7 @@ class ReadMore extends React.Component {
                 {children.substr(0, charLimit)}...
                 <span
                     className="readMoreText"
-                    style={{ color: '#FFF', cursor: 'pointer', 'text-transform': "uppercase", background: "#637192", margin: "5px" }}
+                    style={{ color: "#FFF", cursor: "pointer", "text-transform": "uppercase", background: "#637192", margin: "5px" }}
                     role="presentation"
                     onClick={this.showLongText.bind(this)}
                 >
@@ -35,7 +35,7 @@ class ReadMore extends React.Component {
             {children}
             <span
                 className="readMoreText"
-                style={{ color: '#FFF', cursor: 'pointer', 'text-transform': "uppercase", background: "#637192", margin: "5px" }}
+                style={{ color: "#FFF", cursor: "pointer", "text-transform": "uppercase", background: "#637192", margin: "5px" }}
                 role="presentation"
                 onClick={this.showShortText.bind(this)}
             >
@@ -72,7 +72,7 @@ ReadMore.propTypes = {
 };
 ReadMore.defaultProps = {
     charLimit: 150,
-    readMoreText: 'Read more',
-    readLessText: 'Read less'
+    readMoreText: "Read more",
+    readLessText: "Read less"
 };
 export default ReadMore;

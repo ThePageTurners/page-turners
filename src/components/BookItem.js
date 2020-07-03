@@ -29,8 +29,8 @@ const BookItem = (props) => {
             (<div className="bookDescription blurb">
             <ReactReadMoreReadLess
                 charLimit={200}
-                readMoreText=' read more ▼'
-                readLessText=' read less ▲'
+                readMoreText=" read more ▼"
+                readLessText=" read less ▲"
                 readMoreClassName="read-more-less--more"
                 readLessClassName="read-more-less--less"
             >

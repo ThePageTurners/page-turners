@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../Firebase/index.js";
-import ReactReadMoreReadLess from "react-read-more-less";
+import ReactReadMoreReadLess from "./ReadMore.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookReader } from '@fortawesome/free-solid-svg-icons';
 
@@ -89,8 +89,8 @@ class Bookshelf extends Component {
                       <ReactReadMoreReadLess
                         className="moreOrLess"
                         charLimit={200}
-                        readMoreText='read more ▼'
-                        readLessText='...read less ▲'
+                        readMoreText=" read more ▼"
+                        readLessText=" read less ▲"
                         readMoreClassName="read-more-less--more"
                         readLessClassName="read-more-less--less"
                       >

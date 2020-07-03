@@ -154,16 +154,18 @@ class Search extends Component {
 	render() {
 		return (
 			<Fragment>
-				<input
-					type="text"
-					placeholder="Title / Author"
-					value={this.state.userInput}
-					onChange={this.handleChange}
-					onKeyPress={this.handleKeyPress}
-					name="userInput"
-				/>
-				<button className="searchButton" onClick={this.handleSearchClick}>Search Book</button>
-				<button className="searchButton" onClick={this.handleSearchClick}>{this.searchIcon}</button>
+				<div className="inputSearch">
+					<label className="visuallyHidden" for="userInput">Search a book by title or author</label>
+					<input
+						type="text"
+						placeholder="Title / Author"
+						value={this.state.userInput}
+						onChange={this.handleChange}
+						onKeyPress={this.handleKeyPress}
+						name="userInput"
+					/>
+					<button className="searchButton" onClick={this.handleSearchClick}>{this.searchIcon}</button>
+				</div>
 				{!this.state.books ? (
 					<h2>There were no matches, please try again</h2>
 				) : (
