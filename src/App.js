@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import Ripples from 'react-ripples';
-import './App.scss';
+
+import React, { Component } from "react";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
+import "./App.scss";
+import Ripples from "react-ripples";
 
 // * * * * ROUTER ELEMENTS
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Home from './components/Home';
-import Search from './components/Search';
-import Bookshelf from './components/Bookshelf';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import Search from "./components/Search";
+import Bookshelf from "./components/Bookshelf";
 // * * * * ROUTER ELEMENTS END
 
 class App extends Component {
@@ -34,7 +35,6 @@ class App extends Component {
 							<Route exact path="/bookshelf" component={Bookshelf} />
 						</div>
 					</main>
-
 					<Footer />
 				</div>
 			</Router>

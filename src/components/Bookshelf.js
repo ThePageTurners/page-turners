@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import firebase from "../Firebase/index.js";
-import ReactReadMoreReadLess from "react-read-more-less";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookReader } from '@fortawesome/free-solid-svg-icons';
+import ReactReadMoreReadLess from "./ReadMore.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 
 class Bookshelf extends Component {
   constructor() {
@@ -36,9 +36,9 @@ class Bookshelf extends Component {
     dbRef.once("value", (snapshot) => {
       const data = snapshot.val();
       if (data[index].isRead) {
-        dbRef.child(index).update({ isRead: false });
+        dbRef.child(index).update({isRead: false});
       } else {
-        dbRef.child(index).update({ isRead: true });
+        dbRef.child(index).update({isRead: true});
       }
     });
   };
@@ -49,20 +49,18 @@ class Bookshelf extends Component {
   };
 
   render() {
-    const numReadBooks = this.state.readingList.filter((item) => item.isRead)
-      .length;
+    const numReadBooks = this.state.readingList.filter((item) => item.isRead).length;
     return (
       <div>
         <h2>{this.bookReader} Bookshelf </h2>
-        
         <p>
           You have read {numReadBooks} out of {this.state.readingList.length}{" "}
         </p>
-        <ul className="bookResults">
+        <ul>
           {this.state.readingList.map((book, index) => {
             return (
               <li key={index} className="book bookListing">
-                <h3 className="title">{book.title ? `${book.title}` : "not available"}</h3>
+                <h3 className="title">{book.title ? `${book.title}` : "Not available"}</h3>
                   <div className="imageContainer bookImage">
                     <img
                       src={
@@ -75,13 +73,13 @@ class Bookshelf extends Component {
                   </div>
                   <div className="writtenInfo info">
                     <p>
-                      Author: {book.author ? `${book.author}` : "not available"}
+                      Author: {book.author ? `${book.author}` : "Not available"}
                     </p>
                     <p>
-                      Genre: {book.genre ? `${book.genre}` : "not available"}
+                      Genre: {book.genre ? `${book.genre}` : "Not available"}
                     </p>
                     <p>
-                      Rating: {book.rating ? `${book.rating}/5` : "not available"}
+                      Rating: {book.rating ? `${book.rating}/5` : "Not available"}
                     </p>
                   </div>
                   {book.description ? (
@@ -89,8 +87,8 @@ class Bookshelf extends Component {
                       <ReactReadMoreReadLess
                         className="moreOrLess"
                         charLimit={200}
-                        readMoreText='read more ▼'
-                        readLessText='...read less ▲'
+                        readMoreText=" read more ▼"
+                        readLessText=" read less ▲"
                         readMoreClassName="read-more-less--more"
                         readLessClassName="read-more-less--less"
                       >
@@ -99,7 +97,7 @@ class Bookshelf extends Component {
                     </div>
                   ) : null}
                   
-                  <button className={`readButton ${book.isRead ? "toggledButton" : null}`} onClick={() => this.toggleRead(book.uniqueId)}>{ book.isRead ? "Mark as Unread": "Mark as Read" }</button>
+                  <button className={`readButton ${book.isRead ? "toggledButton" : null}`} onClick={() => this.toggleRead(book.uniqueId)}>{book.isRead ? "Mark as Unread": "Mark as Read"}</button>
 
                   <button
                     className="delButton"

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactReadMoreReadLess from './ReadMore';
+import ReactReadMoreReadLess from "./ReadMore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as solidBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark as outlineBookmark } from "@fortawesome/free-regular-svg-icons";
@@ -16,21 +16,21 @@ const BookItem = (props) => {
         <img src={props.thumbnail} alt={props.title} />
         </div>
         <div className="writtenInfo info">
-          { props.isAdded ? (
+          {props.isAdded ? (
             <span className="bookmark">{solidBookmarkIcon}</span>
           ) : (
             <span className="bookmark">{outlinedBookmarkIcon}</span>
           )} 
           <p className="author">{props.authors}</p>
-          <p>Genre: { props.genre ? `${props.genre}` : "not available" }</p>
-          <p>Rating: { props.rating ? `${props.rating}/5` : "not available" }</p>
+          <p>Genre: {props.genre ? `${props.genre}` : "Not available"}</p>
+          <p>Rating: {props.rating ? `${props.rating}/5` : "Not available"}</p>
         </div>
-        { props.description ? 
+        {props.description ? 
             (<div className="bookDescription blurb">
             <ReactReadMoreReadLess
                 charLimit={200}
-                readMoreText=' read more ▼'
-                readLessText=' read less ▲'
+                readMoreText=" read more ▼"
+                readLessText=" read less ▲"
                 readMoreClassName="read-more-less--more"
                 readLessClassName="read-more-less--less"
             >

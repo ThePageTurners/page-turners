@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 // * * * * IN ORDER TO USE THIS IMPORT WE HAD TO COPY IT FROM THE REPO TO ALTER THE STYLING https://github.com/Thamodaran/react-read-more-less
 
 class ReadMore extends React.Component {
@@ -19,7 +19,7 @@ class ReadMore extends React.Component {
                 {children.substr(0, charLimit)}...
                 <span
                     className="readMoreText"
-                    style={{ color: '#FFF', cursor: 'pointer', 'text-transform': "uppercase", background: "#637192", margin: "5px" }}
+                    style={{ color: "#FFF", cursor: "pointer", "textTransform": "uppercase", background: "#637192", margin: "5px" }}
                     role="presentation"
                     onClick={this.showLongText.bind(this)}
                 >
@@ -35,7 +35,7 @@ class ReadMore extends React.Component {
             {children}
             <span
                 className="readMoreText"
-                style={{ color: '#FFF', cursor: 'pointer', 'text-transform': "uppercase", background: "#637192", margin: "5px" }}
+                style={{ color: "#FFF", cursor: "pointer", "text-transform": "uppercase", background: "#637192", margin: "5px" }}
                 role="presentation"
                 onClick={this.showShortText.bind(this)}
             >
@@ -46,7 +46,7 @@ class ReadMore extends React.Component {
 
     showLongText() {
         const { children } = this.props;
-        this.setState({ charLimit: children.length });
+        this.setState({charLimit: children.length});
         this.getReadMoreContent();
     }
 
@@ -72,7 +72,7 @@ ReadMore.propTypes = {
 };
 ReadMore.defaultProps = {
     charLimit: 150,
-    readMoreText: 'Read more',
-    readLessText: 'Read less'
+    readMoreText: "Read more",
+    readLessText: "Read less"
 };
 export default ReadMore;
