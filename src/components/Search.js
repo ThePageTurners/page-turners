@@ -78,7 +78,6 @@ class Search extends Component {
             const data = snapshot.val();
             const retrievedArray = Object.values(data);
             const valuesArray = Object.values(retrievedArray);
-            console.log("valuesArray", valuesArray);
             let idArray = [];
             valuesArray.map(element => {
                 idArray.push(element.identity);
@@ -163,16 +162,16 @@ class Search extends Component {
 					onKeyPress={this.handleKeyPress}
 					name="userInput"
 				/>
-				<button onClick={this.handleSearchClick}>Search Book</button>
-				<button onClick={this.handleSearchClick}>{this.searchIcon}</button>
+				<button className="searchButton" onClick={this.handleSearchClick}>Search Book</button>
+				<button className="searchButton" onClick={this.handleSearchClick}>{this.searchIcon}</button>
 				{!this.state.books ? (
 					<h2>There were no matches, please try again</h2>
 				) : (
-					<ul>
+					<ul className="bookSearch">
 						{this.state.books.map((book, index) => {
 							const  { title, authors, description, categories, averageRating, imageLinks } = book.volumeInfo;
 							return (
-							<li key={index}>
+							<li className="listResult" key={index}>
 								<BookItem
 									key={index}
 									title={title}
