@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/page-turners/static/css/main.136ac262.chunk.css",
+    "main.css": "/page-turners/static/css/main.abef3eb8.chunk.css",
     "main.js": "/page-turners/static/js/main.8729e680.chunk.js",
     "main.js.map": "/page-turners/static/js/main.8729e680.chunk.js.map",
     "runtime-main.js": "/page-turners/static/js/runtime-main.2be28b97.js",
@@ -8,9 +8,9 @@
     "static/js/2.139c3847.chunk.js": "/page-turners/static/js/2.139c3847.chunk.js",
     "static/js/2.139c3847.chunk.js.map": "/page-turners/static/js/2.139c3847.chunk.js.map",
     "index.html": "/page-turners/index.html",
-    "precache-manifest.d7be5cf9b69c9d52e657de237e2122c5.js": "/page-turners/precache-manifest.d7be5cf9b69c9d52e657de237e2122c5.js",
+    "precache-manifest.ffea66a651df070f17d7177e847dd9ec.js": "/page-turners/precache-manifest.ffea66a651df070f17d7177e847dd9ec.js",
     "service-worker.js": "/page-turners/service-worker.js",
-    "static/css/main.136ac262.chunk.css.map": "/page-turners/static/css/main.136ac262.chunk.css.map",
+    "static/css/main.abef3eb8.chunk.css.map": "/page-turners/static/css/main.abef3eb8.chunk.css.map",
     "static/js/2.139c3847.chunk.js.LICENSE.txt": "/page-turners/static/js/2.139c3847.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/page-turners/static/media/bookBackgroundWhite.4f6017e6.jpg",
     "static/media/bookNavIcon.jpg": "/page-turners/static/media/bookNavIcon.7f33033a.jpg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.2be28b97.js",
     "static/js/2.139c3847.chunk.js",
-    "static/css/main.136ac262.chunk.css",
+    "static/css/main.abef3eb8.chunk.css",
     "static/js/main.8729e680.chunk.js"
   ]
 }
