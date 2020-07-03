@@ -1,6 +1,5 @@
 import React from "react";
-// import ReadMoreReact from 'read-more-react';
-import ReactReadMoreReadLess from "react-read-more-less";
+import ReactReadMoreReadLess from './ReadMore';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as solidBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark as outlineBookmark } from "@fortawesome/free-regular-svg-icons";
@@ -30,8 +29,8 @@ const BookItem = (props) => {
             (<div className="bookDescription blurb">
             <ReactReadMoreReadLess
                 charLimit={200}
-                readMoreText='read more ▼'
-                readLessText='...read less ▲'
+                readMoreText=' read more ▼'
+                readLessText=' read less ▲'
                 readMoreClassName="read-more-less--more"
                 readLessClassName="read-more-less--less"
             >
