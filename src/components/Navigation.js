@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import bookStackIcon from '../assets/bookNavIcon.jpg';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import bookStackIcon from "../assets/bookNavIcon.jpg";
 
 function Navigation() {
 	const [ open, setOpen ] = useState(false);
 
 	function navToggle() {
 		setOpen(wasOpened => !wasOpened)
-	}
+	};
 	
 	return (
 		<div className="bookDropdownLink">

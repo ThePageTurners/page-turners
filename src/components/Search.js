@@ -38,9 +38,6 @@ class Search extends Component {
 			})
 			.catch((error) => {
 				alert(error);
-				this.setState({
-					hasError: false
-				});
 			});
 	};
 
@@ -155,7 +152,7 @@ class Search extends Component {
 		return (
 			<Fragment>
 				<div className="inputSearch">
-					<label className="visuallyHidden" for="userInput">Search a book by title or author</label>
+					<label className="visuallyHidden">Search a book by title or author</label>
 					<input
 						type="text"
 						placeholder="Title / Author"
@@ -173,22 +170,22 @@ class Search extends Component {
 						{this.state.books.map((book, index) => {
 							const  { title, authors, description, categories, averageRating, imageLinks } = book.volumeInfo;
 							return (
-							<li className="listResult" key={index}>
-								<BookItem
-									key={index}
-									title={title}
-									authors={authors && authors.length > 1 ? authors.join(", ") : authors}
-									description={description}
-									genre={categories}
-									isAdded={book.isAdded}
-									rating={averageRating}
-									thumbnail={imageLinks ? imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png"}
-									handleClickAdd={this.handleClickAdd}
-								/>
-								<button className={book.isAdded ? "toggledButton" : null} onClick={() => this.handleClickAdd(index)}>
-									{!book.isAdded ? "Add Book": "Added"}
-								</button>
-							</li>
+								<li className="listResult" key={index}>
+									<BookItem
+										key={index}
+										title={title}
+										authors={authors && authors.length > 1 ? authors.join(", ") : authors}
+										description={description}
+										genre={categories}
+										isAdded={book.isAdded}
+										rating={averageRating}
+										thumbnail={imageLinks ? imageLinks.thumbnail : "https://d827xgdhgqbnd.cloudfront.net/wp-content/uploads/2016/04/09121712/book-cover-placeholder.png"}
+										handleClickAdd={this.handleClickAdd}
+									/>
+									<button className={book.isAdded ? "toggledButton" : null} onClick={() => this.handleClickAdd(index)}>
+										{!book.isAdded ? "Add Book": "Added"}
+									</button>
+								</li>
 							);
 						})}
 					</ul>
