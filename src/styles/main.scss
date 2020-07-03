@@ -144,7 +144,7 @@ button {
     "blurb blurb blurb"
     "read read . "
     "del del . ";
-  margin-top: 4rem;
+  // margin-top: 4rem;
   max-width: 56rem;
   .bookmark {
     padding-bottom: 1rem;
@@ -203,4 +203,16 @@ button.toggledButton {
 
 .readMoreClass{
   color: #000;
+}
+
+.listResult,
+.bookListing{
+  border-radius: 15px;
+  background-color: rgba(99, 113, 146, 0.2);
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.searchButton{
+  margin-right:10px;
 }

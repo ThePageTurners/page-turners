@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import firebase from "../Firebase/index.js";
 import ReactReadMoreReadLess from "react-read-more-less";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookReader } from '@fortawesome/free-solid-svg-icons';
 
 class Bookshelf extends Component {
   constructor() {
@@ -9,6 +11,8 @@ class Bookshelf extends Component {
       readingList: [],
     };
   }
+
+  bookReader = <FontAwesomeIcon  icon={faBookReader} size="1x" />
 
   componentDidMount() {
     const dbRef = firebase.database().ref("readingList");
@@ -49,14 +53,15 @@ class Bookshelf extends Component {
       .length;
     return (
       <div>
-        <h2>Bookshelf</h2>
+        <h2>{this.bookReader} Bookshelf </h2>
+        
         <p>
           You have read {numReadBooks} out of {this.state.readingList.length}{" "}
         </p>
         <ul className="bookResults">
           {this.state.readingList.map((book, index) => {
             return (
-              <li key={index} className="book">
+              <li key={index} className="book bookListing">
                 <h3 className="title">{book.title ? `${book.title}` : "not available"}</h3>
                   <div className="imageContainer bookImage">
                     <img
