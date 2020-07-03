@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Navigation from './components/Navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import Favicon from 'react-favicon';
-import ReactDOM from 'react-dom';
+// import Favicon from 'react-favicon';
+// import ReactDOM from 'react-dom';
 import './App.scss';
 import Ripples from 'react-ripples';
 
@@ -14,31 +14,9 @@ import Search from './components/Search';
 import Bookshelf from './components/Bookshelf';
 // * * * * ROUTER ELEMENTS END
 
-ReactDOM.render(
-	<div>
-		<Favicon url="favicon.ico" />
-	</div>,
-	document.getElementById('root')
-);
-
 class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-			user: {},
-			isLoggedIn: false,
-			userNames: '',
-			activeUser: ''
-		};
-	}
 
 	github = <FontAwesomeIcon icon={faGithub} size="1x" />;
-
-	handleChangeUser = (event) => {
-		this.setState({
-			activeUser: event.target.value
-		});
-	};
 
 	render() {
 		return (
@@ -46,7 +24,7 @@ class App extends Component {
 				<div className="App">
 					<header>
 						<Ripples className="h1" color="#f1f8f8" during={1200}>
-							<Link to="/home" className="pageTitle">
+							<Link to="/" className="pageTitle">
 								<h1>Page Turners</h1>
 							</Link>
 						</Ripples>
